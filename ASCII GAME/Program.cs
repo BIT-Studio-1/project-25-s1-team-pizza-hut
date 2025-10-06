@@ -13,6 +13,18 @@
             Console.WriteLine("You sit down at a computer. \nIt looks like this:");
 
             //insert animation of person sitting at pc
+
+            //play game
+
+            //if win
+            Console.WriteLine("You won! The pizza was delivered ahead of time and is still hot!");
+
+            //if lose
+            Console.WriteLine("You lost! You take a bite of the pizza and pass away.");
+            //insert animation
+
+            
+            //Console.Beep(2000, 1000);
         }
     }
 }
