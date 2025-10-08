@@ -6,28 +6,38 @@ namespace ASCII_GAME
     {
         public static void Intro()
         {
-            Console.WriteLine("Welcome to Pizza Hut Computer!");
+            
             string[] pizzaHutLogo = { "                                         ######++##                        \r\n                                  ############++++##                       \r\n                            ############++++++++++##                       \r\n                          #######+++++++++++++++++###                      \r\n                         ##++++++++++++++++++++++++###                     \r\n                        ##+++++++++++++++++++++++++##########              \r\n                       ##++++++++++++++++++++++++++++++###########         \r\n                      #++++++++++++++++++++++++++++++++++++++##########    \r\n                    ##++++++++++++++++++++++++++++++++++++++++++++######## \r\n                #####++++++++++++++++++++++++++++++++##############++++### \r\n             #####++++++++++++++++++++++###########################++++    \r\n          #####+++++++++++++++################################             \r\n       #####++++++++++###########+++######                                 \r\n     ####+++++#################+++++                                       \r\n  #####################      ++++++                                        \r\n##############               ++++             ############       ########  \r\n#######                       +               #############   ###########  \r\n            #######           ## ############# ##########   ######  ####   \r\n        ##############      #### ############    #######   ################\r\n        ###############    #####      ######   #######     ################\r\n          ####   #######  #####     ######   #####################         \r\n         #####     ##### #####   ########   ###############                \r\n        #####      ##### ##### ############# ##     ##                     \r\n       #####     ######  #### #########################   ###              \r\n      ######   ######    ###  #####################     #####              \r\n     ##############      ##      ###                   ############        \r\n    ######  #           ###     ####            # #############            \r\n    ######             ####    ####  ###       ### #######                 \r\n   ######             ####     ####  ####     ####   ####                  \r\n   #####             #####    ###########   ######  #####                  \r\n  #####             ############### #############   ####                   \r\n  #####        ###################  #############   ###          .-...     \r\n  ####         ###################  #######   ###   ##+..............-     \r\n   #             ######     #####     ##        ....+-..........    ###    \r\n                 ######     ####          ................          ###    \r\n                 #####       ##       ...............                      \r\n                 #####            .............                            \r\n                 ####        -............--                               \r\n                         -..............                                   \r\n                      .............                                        \r\n                      ........-                                            " };
             foreach (string logo in pizzaHutLogo) { Console.WriteLine(logo); }
-            Console.ReadLine();
-
-            Console.WriteLine("You sit down at a computer. \nIt looks like this:");
+            Console.WriteLine("Pizza Hut Games");
+            Thread.Sleep(1000);
+            Console.Write("\n\n.");
+            Thread.Sleep(1000);
+            Console.Write(".");
+            Thread.Sleep(1000);
+            Console.Write(".");
+            Thread.Sleep(1000);
+            Console.Clear();
 
             //insert animation of person sitting at pc
-            Console.ReadLine();
+            Console.WriteLine("You sit down at a computer. \nIt looks like this:");
+            //Starting up Computer Animation?, before proceeding into Menu
+
+            Thread.Sleep(1000);
         }
         public static void Menu()
         {
             int choice;
             do
             {
-                Console.WriteLine("Menu Options:");
+                Console.WriteLine("\tMenu Options:");
 
-                Console.WriteLine("\t1 Tic Tac Toe");
-                Console.WriteLine("\t2 Battleships");
-                Console.WriteLine("\t3 Minesweeper");
-                Console.WriteLine("\t0 Shutdown");
+                Console.WriteLine("\t\t1 Tic Tac Toe");
+                Console.WriteLine("\t\t2 Battleships");
+                Console.WriteLine("\t\t3 Minesweeper");
+                Console.WriteLine("\t\t0 Shutdown");
                 Console.WriteLine();
+                Console.Write("\tChoice: ");
 
                 choice = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
@@ -36,6 +46,7 @@ namespace ASCII_GAME
                 {
                     case 0:
                         Console.WriteLine("Shutting Down...");
+                        Thread.Sleep(1000);
                         break;
 
                     case 1:
@@ -51,12 +62,12 @@ namespace ASCII_GAME
                         break;
 
                     default:
-                        Console.WriteLine("Invalid Input");
+                        Console.WriteLine("Invalid Input, Try Again");
+                        Console.ReadLine();
                         break;
 
                 }
 
-                Console.ReadLine();
                 Console.Clear();
             } while (choice != 0);
         }
@@ -65,18 +76,21 @@ namespace ASCII_GAME
         {
             //If Making Tic Tac Toe use this method
             Console.WriteLine("This is Tic Tac Toe");
+            Console.ReadLine();
         }
 
         public static void Battleships()
         {
             //If Making Battleships use this method
             Console.WriteLine("This is Battleships");
+            Console.ReadLine();
         }
 
         public static void Minesweeper()
         {
             //If Making Minesweeper use this method
             Console.WriteLine("This is Minesweeper");
+            Console.ReadLine();
         }
 
 
@@ -85,6 +99,7 @@ namespace ASCII_GAME
         {
             //If Adding to TextAdventure Code use this method
             Console.WriteLine("This is the TextAdventure");
+            Console.ReadLine();
         }
             public static void BigChungus()
             {
