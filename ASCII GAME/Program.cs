@@ -199,6 +199,16 @@ namespace ASCII_GAME
                     Console.WriteLine(Winning);
                 }
                 Console.ReadLine();
+             }
+                 public static void GuyatComputer()
+             {
+                //Ascii art for the games winning screen
+                string[] LosingScreen = { " __   __            _                   _ \r\n \\ \\ / /__  _   _  | |    ___  ___  ___| |\r\n  \\ V / _ \\| | | | | |   / _ \\/ __|/ _ \\ |\r\n   | | (_) | |_| | | |__| (_) \\__ \\  __/_|\r\n   |_|\\___/ \\__,_| |_____\\___/|___/\\___(_)" };
+                foreach (string Lose in LosingScreen)
+                {
+                    Console.WriteLine(Lose);
+                }
+                Console.ReadLine();
             }
         }
 
