@@ -78,6 +78,12 @@ namespace ASCII_GAME
             //If Making Tic Tac Toe use this method
             Console.WriteLine("This is Tic Tac Toe");
             Console.ReadLine();
+
+            char[] pos = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            int player = 1;
+            int choice;
+
+            int flag = 0;
         }
 
         public static void Battleships()
