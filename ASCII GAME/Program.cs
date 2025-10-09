@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ASCII_GAME
@@ -114,7 +115,7 @@ namespace ASCII_GAME
             // Text Adventure Code and Enemies
 
             //Character Stats
-            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0;
+            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100;
 
             public static void Adventure()
             {
@@ -128,6 +129,16 @@ namespace ASCII_GAME
             }
             public static void check()
             {
+                while ( XP > Required)
+                {
+                    LVL += 1;
+                    DEF += 1;
+                    ATT += 2;
+                    current_HP = max_HP;
+
+                    XP -= Required;
+                    Required += 20;
+                }
                 Console.WriteLine($"HP  : {max_HP}/{current_HP}");
                 Console.WriteLine($"DEF : {DEF}");
                 Console.WriteLine($"ATT : {ATT}");
