@@ -193,7 +193,7 @@ namespace ASCII_GAME
                 public static void GuyatComputer()
             {
                 //Ascii art for the games winning screen
-                string[] WinningScreen = {""};
+                string[] WinningScreen = { " __   __           __        ___       _ \r\n \\ \\ / /__  _   _  \\ \\      / (_)_ __ | |\r\n  \\ V / _ \\| | | |  \\ \\ /\\ / /| | '_ \\| |\r\n   | | (_) | |_| |   \\ V  V / | | | | |_|\r\n   |_|\\___/ \\__,_|    \\_/\\_/  |_|_| |_(_)" };
                 foreach (string Winning in WinningScreen)
                 {
                     Console.WriteLine(Winning);
