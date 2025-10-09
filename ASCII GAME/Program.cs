@@ -85,6 +85,18 @@ namespace ASCII_GAME
             //If Making Battleships use this method
             Console.WriteLine("This is Battleships");
             Console.ReadLine();
+
+            //generate board of coordinates
+            for (int i = 1; i <= 10; i++)
+            {
+                for (char letter = 'A'; letter < 'J'; letter++)
+                {
+                    Console.Write($"{letter}{i}".ToString().PadLeft(5));
+                }
+                Console.WriteLine("");
+            }
+
+
         }
 
         public static void Minesweeper()
