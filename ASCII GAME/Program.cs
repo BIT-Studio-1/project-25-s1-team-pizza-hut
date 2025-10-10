@@ -8,7 +8,7 @@ namespace ASCII_GAME
 {
     internal class Program
     {
-        public static Random rand = new Random();                                                                           //PUBLICALLY AVAIABLE RANDOM VARIABLE
+        public static Random rand = new Random(); //PUBLICALLY AVAILABLE RANDOM VARIABLE
         public static void Intro()
         {
 
@@ -126,7 +126,7 @@ namespace ASCII_GAME
             // Text Adventure Code and Enemies
 
             //Character Stats
-            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100;     //PUBLICALLY AVAILABLE PLAYER STATS
+            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
             
 
             public static void Adventure()
@@ -138,7 +138,7 @@ namespace ASCII_GAME
 
 
                 // Encounters random enemy for battle?? BigChungus as placeholder for now,
-                // Could have enemies show up according to the room or place the player is at, possibly also with a random modifier?
+                // Could enemies show up according to the room or place the player is at according to random chance?
                 int[] Enemy_Stats = BigChungus();
                 Fight(Enemy_Stats);
                 Console.ReadLine();
