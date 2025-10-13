@@ -233,9 +233,11 @@ namespace ASCII_GAME
                     Console.WriteLine(Path);
                 }
                 Console.ReadLine();
-
+                Thread.Sleep(300);
                 Console.WriteLine("To your left is a carrot field but there is no rabbit to be seen.");
+                Thread.Sleep(300);
                 Console.WriteLine("To your right you see BLANK");
+                Console.Write("Enter L or R for your choice: ");
                 string choice;
                 //Choose pathway to next encounter
                 do
