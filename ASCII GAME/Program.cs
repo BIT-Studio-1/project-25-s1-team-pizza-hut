@@ -41,12 +41,16 @@ namespace ASCII_GAME
             int choice;
             do
             {
-                Console.WriteLine("\tMenu Options:");
-
-                Console.WriteLine("\t\t1 Tic Tac Toe");
-                Console.WriteLine("\t\t2 Battleships");
-                Console.WriteLine("\t\t3 Minesweeper");
-                Console.WriteLine("\t\t0 Shutdown");
+                Console.WriteLine("\t\t[Menu Options:]");
+                Console.WriteLine();
+                Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I");
+                Console.WriteLine("\t\tI                     I");
+                Console.WriteLine("\t\tI   1: Tic-tac-toe    I");
+                Console.WriteLine("\t\tI   2: Battleships    I");
+                Console.WriteLine("\t\tI   3: Minesweeper    I");
+                Console.WriteLine("\t\tI   0: Shutdown       I");
+                Console.WriteLine("\t\tI                     I");
+                Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I");
                 Console.WriteLine();
                 Console.Write("\tChoice: ");
 
