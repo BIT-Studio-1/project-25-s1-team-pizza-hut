@@ -134,7 +134,6 @@ namespace ASCII_GAME
 
             //Character Stats
             public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
-            
 
             public static void Adventure()
             {
@@ -196,6 +195,11 @@ namespace ASCII_GAME
                 Console.ReadLine();
             }
 
+            public static int[] Items(int[] item_List)
+            {
+
+                return item_List;
+            }
 
             // Enemies
             public static int[] BigChungus()
@@ -235,7 +239,6 @@ namespace ASCII_GAME
                 Console.ReadLine();
             }
 
-
                 public static void PlayerWins()
             {
                 //Ascii art for the games winning screen
@@ -256,6 +259,23 @@ namespace ASCII_GAME
                 }
                 Console.ReadLine();
             }
+
+            // Items
+            public static int[] item1()
+            {
+                int[] item_stats = { };
+
+                return item_stats;
+            }
+            public static int[] item2()
+            {
+                int[] item_stats = { };
+
+                return item_stats;
+            }
+
+
+
         }
 
 
