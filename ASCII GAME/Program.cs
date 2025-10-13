@@ -233,13 +233,12 @@ namespace ASCII_GAME
 
                 Console.WriteLine("To your left is a carrot field but there is no rabbit to be seen.");
                 Console.WriteLine("To your right you see BLANK");
-
-                string choice = Console.ReadLine();
-                Console.Clear();
+                string choice;
+                //Choose pathway to next encounter
                 do
                 {
-
-
+                    choice = Console.ReadLine();
+                    Console.Clear();
                     switch (choice.ToUpper())
                     {
                         case "L":
@@ -251,8 +250,7 @@ namespace ASCII_GAME
                             break;
 
                         default:
-                            Console.WriteLine("Invalid Input, Try Again");
-                            Console.ReadLine();
+                            Console.WriteLine("Invalid Input, Please Enter L or R");
                             break;
                     }
                     Console.Clear();
