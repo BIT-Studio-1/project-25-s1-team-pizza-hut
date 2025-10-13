@@ -51,6 +51,7 @@ namespace ASCII_GAME
                 Console.Write("\tChoice: ");
 
                 string temp = Console.ReadLine();
+                //TODO - Need Error Handling for Wrong Inputs
                 choice = Convert.ToInt32(temp);
                 Console.Clear();
 
@@ -136,7 +137,7 @@ namespace ASCII_GAME
                 Console.WriteLine("This is the TextAdventure");
                 Console.ReadLine();
 
-
+                
                 // Encounters random enemy for battle?? BigChungus as placeholder for now,
                 // Could enemies show up according to the room or place the player is at according to random chance?
                 int[] Enemy_Stats = BigChungus();
@@ -161,6 +162,8 @@ namespace ASCII_GAME
                     //Enemy's Turn
 
                     //Player's Turn
+
+                    break;  //Currently Without this will get stuck in infinite loop
                 }
             }
 
