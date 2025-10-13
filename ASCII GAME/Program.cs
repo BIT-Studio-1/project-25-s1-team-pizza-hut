@@ -173,6 +173,51 @@ namespace ASCII_GAME
                 }
             }
 
+            public static void FightMenu()
+            {
+                int choice;
+                do
+                {
+                    Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
+                    Console.WriteLine("\t\tI                                           I");
+                    Console.WriteLine("\t\tI            1: Attack                      I");
+                    Console.WriteLine("\t\tI            2: Items                       I");
+                    Console.WriteLine("\t\tI            3: Check                       I");
+                    Console.WriteLine("\t\tI                                           I");
+                    Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
+
+                    string temp = Console.ReadLine();
+                    choice = Convert.ToInt32(temp);
+                    Console.Clear();
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("You attack");
+                            Thread.Sleep(1000);
+                            break;
+
+                        case 2:
+                            //check items
+                            break;
+
+                        case 3:
+                            //check player stats
+                            check();
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Input, Try Again");
+                            Console.ReadLine();
+                            break;
+
+                    }
+
+                    Console.Clear();
+                } while (choice != 1 || choice != 2 || choice != 3);
+            
+            }
+
             public static void check()
             {
                 while (XP > Required)
