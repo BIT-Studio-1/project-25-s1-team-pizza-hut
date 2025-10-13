@@ -38,7 +38,7 @@ namespace ASCII_GAME
 
         public static void Menu()
         {
-            int choice;
+            int choice = 999;
             do
             {
                 Console.WriteLine("\tMenu Options:");
@@ -50,9 +50,14 @@ namespace ASCII_GAME
                 Console.WriteLine();
                 Console.Write("\tChoice: ");
 
-                string temp = Console.ReadLine();
-                //TODO - Need Error Handling for Wrong Inputs
-                choice = Convert.ToInt32(temp);
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch 
+                { 
+
+                }
                 Console.Clear();
 
                 switch (choice)
@@ -76,6 +81,7 @@ namespace ASCII_GAME
 
                     default:
                         Console.WriteLine("Invalid Input, Try Again");
+                        Console.WriteLine("Press Enter to Continue");
                         Console.ReadLine();
                         break;
 
