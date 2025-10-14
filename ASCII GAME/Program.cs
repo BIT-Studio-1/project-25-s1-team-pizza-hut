@@ -38,7 +38,7 @@ namespace ASCII_GAME
 
         public static void Menu()
         {
-            int choice;
+            int choice = 999;
             do
             {
                 Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
@@ -57,8 +57,14 @@ namespace ASCII_GAME
                 Console.WriteLine();
                 Console.Write("\tChoice: ");
 
-                string temp = Console.ReadLine();
-                choice = Convert.ToInt32(temp);
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch 
+                { 
+
+                }
                 Console.Clear();
 
                 switch (choice)
@@ -82,6 +88,7 @@ namespace ASCII_GAME
 
                     default:
                         Console.WriteLine("Invalid Input, Try Again");
+                        Console.WriteLine("Press Enter to Continue");
                         Console.ReadLine();
                         break;
 
@@ -142,8 +149,9 @@ namespace ASCII_GAME
 
                 Console.WriteLine("This is the TextAdventure");
                 Console.ReadLine();
+
                 Pathway();
-                check();
+
                 // Encounters random enemy for battle?? BigChungus as placeholder for now,
                 // Could enemies show up according to the room or place the player is at according to random chance?
 
@@ -179,6 +187,8 @@ namespace ASCII_GAME
                     e_Current_HP -= ATT;
                     Console.WriteLine($"You deal {ATT} damage!");
                     Console.WriteLine($"The enemy now has {e_Current_HP}HP");
+
+                    break;  //Currently Without this will get stuck in infinite loop
                 }
             }
 
@@ -249,6 +259,11 @@ namespace ASCII_GAME
                 Console.ReadLine();
             }
 
+            public static int[] Items(int[] item_List)
+            {
+
+                return item_List;
+            }
 
             // Enemies
             public static int[] BigChungus()
@@ -319,7 +334,6 @@ namespace ASCII_GAME
                 
             
 
-
                 public static void PlayerWins()
             {
                 //Ascii art for the games winning screen
@@ -340,6 +354,23 @@ namespace ASCII_GAME
                 }
                 Console.ReadLine();
             }
+
+            // Items
+            public static int[] item1()
+            {
+                int[] item_stats = { };
+
+                return item_stats;
+            }
+            public static int[] item2()
+            {
+                int[] item_stats = { };
+
+                return item_stats;
+            }
+
+
+
         }
 
 
