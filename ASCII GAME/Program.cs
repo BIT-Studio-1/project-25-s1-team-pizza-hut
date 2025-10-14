@@ -164,12 +164,21 @@ namespace ASCII_GAME
                 if (SPD > e_SPD || (SPD == e_SPD && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
                 {
                     //Player starts first
+                    e_Current_HP -= ATT;
+                    Console.WriteLine($"You deal {ATT} damage!");
+                    Console.WriteLine($"The enemy now has {e_Current_HP}HP");
                 }
                 while (e_Current_HP > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
+                    current_HP -= ATT;
+                    Console.WriteLine($"The enemy deals {e_ATT} damage!");
+                    Console.WriteLine($"You now have {current_HP}HP");
 
                     //Player's Turn
+                    e_Current_HP -= ATT;
+                    Console.WriteLine($"You deal {ATT} damage!");
+                    Console.WriteLine($"The enemy now has {e_Current_HP}HP");
                 }
             }
 
@@ -194,6 +203,7 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
+
                             Thread.Sleep(1000);
                             break;
 
@@ -212,10 +222,8 @@ namespace ASCII_GAME
                             break;
 
                     }
-
                     Console.Clear();
-                } while (choice != 1 || choice != 2 || choice != 3);
-            
+                } while (choice != 1 || choice != 2 || choice != 3);          
             }
 
             public static void check()
