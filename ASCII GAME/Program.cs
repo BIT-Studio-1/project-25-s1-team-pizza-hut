@@ -179,7 +179,7 @@ namespace ASCII_GAME
                 while (e_Current_HP > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
-                    current_HP -= ATT;
+                    current_HP -= e_ATT;
                     Console.WriteLine($"The enemy deals {e_ATT} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
 
