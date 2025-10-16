@@ -157,6 +157,8 @@ namespace ASCII_GAME
 
 
                 int[] Enemy_Stats = BigChungus();
+                Console.WriteLine("Does this work"); // Stops before this
+                Console.ReadLine();
                 Fight(Enemy_Stats);
                 Console.ReadLine();
                 // Check New Stats after a Fight
@@ -168,13 +170,10 @@ namespace ASCII_GAME
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] Enemy_Stats = E_Stats;
                 int e_Max_HP = Enemy_Stats[0], e_Current_HP = Enemy_Stats[1], e_ATT = Enemy_Stats[2], e_DEF = Enemy_Stats[3], e_SPD = Enemy_Stats[4], e_LVL = Enemy_Stats[5];
-
                 if (SPD > e_SPD || (SPD == e_SPD && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
                 {
                     //Player starts first
-                    e_Current_HP -= ATT;
-                    Console.WriteLine($"You deal {ATT} damage!");
-                    Console.WriteLine($"The enemy now has {e_Current_HP}HP");
+                    FightMenu(Enemy_Stats);
                 }
                 while (e_Current_HP > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
@@ -182,18 +181,29 @@ namespace ASCII_GAME
                     current_HP -= e_ATT;
                     Console.WriteLine($"The enemy deals {e_ATT} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
+                    Console.ReadLine();
 
-                    //Player's Turn
-                    e_Current_HP -= ATT;
-                    Console.WriteLine($"You deal {ATT} damage!");
-                    Console.WriteLine($"The enemy now has {e_Current_HP}HP");
+                    if (current_HP <= 0)
+                    {
 
-                    break;  //Currently Without this will get stuck in infinite loop
+                        //Player's Turn
+                        FightMenu(Enemy_Stats);
+                    } 
+                }
+                if (e_Current_HP <= 0)
+                {
+                    // Player Has Defeated the Enemy
+                }
+                else if (current_HP <= 0)
+                {
+                    // Player has Died
                 }
             }
 
-            public static void FightMenu()
+            public static void FightMenu(int[] Enemy_Stats)
             {
+                int[] E_Stats = Enemy_Stats;
+                int e_Max_HP = E_Stats[0], e_Current_HP = E_Stats[1], e_ATT = E_Stats[2], e_DEF = E_Stats[3], e_SPD = E_Stats[4], e_LVL = E_Stats[5];
                 int choice;
                 do
                 {
@@ -213,7 +223,9 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
-
+                            e_Current_HP -= ATT;
+                            Console.WriteLine($"You deal {ATT} damage!");
+                            Console.WriteLine($"The enemy now has {e_Current_HP}HP");
                             Thread.Sleep(1000);
                             break;
 
@@ -270,12 +282,13 @@ namespace ASCII_GAME
             {
                 //big chungus potential battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                int[] BigChungus_Stats = new int[6] { 40, 40, 3, 5, 5, 2 };
+                int[] BigChungus_Stats = new int[6] {40, 40, 3, 5, 5, 2};
 
                 string[] chungus = { "                                                                                                         \r\n                                            #               #                                            \r\n                                            #              ###                                           \r\n                                            ##             ###                                           \r\n                                            ###            ###                                           \r\n                                           #####          ####                                           \r\n                                           ######         #####                                          \r\n                                           ######        ######                                          \r\n                                          #### ##        #######                                         \r\n                                          #### ###      #### ###                                         \r\n                                          ####  ##      #### ###                                         \r\n                                          #### ####     ########                                         \r\n                                          #########    #########                                         \r\n                                          #########    #########                                         \r\n                                          ##########   #########                                         \r\n                                          ##########   #########                                         \r\n                                          #### #####   #########                                         \r\n                                          ##########   ########                                          \r\n                                           #########   ########                                          \r\n                                           ########    #######                                           \r\n                                            #######    #######                                           \r\n                                            #######     #####                                            \r\n                                             ######     #####                                            \r\n                                              #####      ###                                             \r\n                                              ####  ###### #                                             \r\n                                               ###############                                           \r\n                                                ################                                         \r\n                                               ##################                                        \r\n                                              ###################                                        \r\n                                              ####################                                       \r\n                                              ##########  ########                                       \r\n                                              ############ ######        #                               \r\n                                           # #####         #### ## ##                                    \r\n                                             ###########  #  ##  ######                                  \r\n                                             # #   ##########  ##   ##                                   \r\n                                             ###     #######      ####                                   \r\n                                            ######      ##########  ###                                  \r\n                                            ######       #######     ##                                  \r\n                                          #########                  #                                   \r\n                                       ################             ##                                   \r\n                                     ########################### ######                                  \r\n                                   ###########  #######   ###   #########                                \r\n                                 #############     ###  #       ###########                              \r\n                              ###############  #                        #####                            \r\n                            #################                          # #####                           \r\n                          #################                            ## ######                         \r\n                         #################                             ### #######                       \r\n                        #################  #                             # ########                      \r\n                       ################   ## ##                          ###########                     \r\n                      ###############   ####                             ############                    \r\n                     ##     ########  #######                             ######    ##                   \r\n                     ### #   ######  ###########                         #########  ##                   \r\n                    ## #       ##############  ##                        ##  ##   # # #                  \r\n                     # #  #        ############                          ##         # #                  \r\n                    ## #     ################## #                        #######      #                  \r\n                    ##        ################ # #                         ####  #   ##                  \r\n                     ##        ################# #                      ######  ## ###                   \r\n                      ###  ##   ################ ###     #            ######  ### ###                    \r\n                       ###   #   ################ #####             ###############                      \r\n                       #####  ################################################                           \r\n                       #######################################################                           \r\n                        #####################################################                            \r\n                        #####################################################                            \r\n                         ###################################################                             \r\n                          ################################################                               \r\n                           ################################################                              \r\n                            #################################################                            \r\n                              ##########################################   #  #                          \r\n                                 #####################################     #####                         \r\n                   ##############################################       ######                           \r\n                 #######    ###################     ######################                               \r\n                 #    ####     ##############                                                            \r\n                ##  ##              #####                                                                \r\n                #######     ########                                                                     \r\n                 ##############                                                                          \r\n                                                                                                         \r\n                                                                                                         " };
                 Console.WriteLine(chungus[0]);
                 Console.WriteLine("BigChungus has appeared!!");
                 Console.ReadLine();
+
                 return BigChungus_Stats;
             }
 
@@ -307,10 +320,11 @@ namespace ASCII_GAME
                 Console.WriteLine("To your right you see BLANK");
                 Console.Write("Enter L or R for your choice: ");
                 string choice;
+                
+                choice = Console.ReadLine();
                 //Choose pathway to next encounter
                 do
                 {
-                    choice = Console.ReadLine();
                     Console.Clear();
                     switch (choice.ToUpper())
                     {
@@ -327,7 +341,7 @@ namespace ASCII_GAME
                             break;
                     }
                     Console.Clear();
-                } while (choice != "L" || choice != "R");
+                } while (choice == "");
             }
         
 
@@ -368,9 +382,6 @@ namespace ASCII_GAME
 
                 return item_stats;
             }
-
-
-
         }
 
 
