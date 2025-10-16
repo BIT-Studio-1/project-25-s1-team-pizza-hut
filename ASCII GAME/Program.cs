@@ -278,7 +278,7 @@ namespace ASCII_GAME
             }
 
             // Enemies
-            public static int[] Pepefrog()
+            public static int[] Pepefrog()  //Need to Return Stats for code to not error
             {
                 //Pepe battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
