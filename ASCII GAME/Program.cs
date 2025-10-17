@@ -165,7 +165,29 @@ namespace ASCII_GAME
                 Console.WriteLine();
                 Console.WriteLine("Press ENTER to begin your quest.");
                 Console.ReadLine();
-                Console.WriteLine("");
+                Console.Clear();
+
+                Console.WriteLine("You’ve heard the stories since you were young...");
+                Thread.Sleep(800);
+                Console.WriteLine("Tales from your grandfather — the old Meme Hunter.");
+                Thread.Sleep(800);
+                Console.WriteLine("He lost a limb fighting the one who shall not be named —");
+                Console.WriteLine("a creature of pure distortion that shattered the Memeverse.");
+                Thread.Sleep(1000);
+                Console.WriteLine();
+                Console.WriteLine("Now, years later, the legends stir again.");
+                Thread.Sleep(800);
+                Console.WriteLine("Frogs whisper in the ponds. Carrots vanish overnight.");
+                Thread.Sleep(800);
+                Console.WriteLine();
+                Console.WriteLine("You grip your grandfather’s sword and take a breath.");
+                Thread.Sleep(800);
+                Console.WriteLine("It’s time to finish his fight.");
+                Thread.Sleep(800);
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to begin your journey.");
+                Console.ReadLine();
+                Console.Clear();
 
 
                 //initialise enemy stats
@@ -408,8 +430,9 @@ namespace ASCII_GAME
                             Thread.Sleep(2000);
                             Console.WriteLine("suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
-                            Pepefrog();                            
+                            Pepefrog();
                             break;
+
 
                         default:
                             Console.WriteLine("Invalid Input, Please Enter L or R");
