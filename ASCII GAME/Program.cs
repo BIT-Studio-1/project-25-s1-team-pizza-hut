@@ -75,15 +75,12 @@ namespace ASCII_GAME
                         break;
 
                     case 1:
-                        T_T_T();
                         break;
 
                     case 2:
-                        Battleships();
                         break;
 
                     case 3:
-                        Minesweeper();
                         break;
 
                     default:
@@ -97,43 +94,6 @@ namespace ASCII_GAME
                 Console.Clear();
             } while (choice != 0);
         }
-
-        public static void T_T_T()
-        {
-            //If Making Tic Tac Toe use this method
-            Console.WriteLine("This is Tic Tac Toe");
-            Console.ReadLine();
-
-            char[] pos = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            int player = 1;
-            int choice;
-
-            int flag = 0;
-        }
-
-        public static void Battleships()
-        {
-            //If Making Battleships use this method
-            Console.WriteLine("This is Battleships");
-            Console.ReadLine();
-
-            //generate board of coordinates
-            for (int i = 1; i <= 10; i++)
-            {
-                for (char letter = 'A'; letter < 'J'; letter++)
-                {
-                    Console.Write($"{letter}{i}".ToString().PadLeft(5));
-                }
-            }
-        }
-
-        public static void Minesweeper()
-        {
-            //If Making Minesweeper use this method
-            Console.WriteLine("This is Minesweeper");
-            Console.ReadLine();
-        }
-
 
         public class TextAdventure
         {
@@ -160,11 +120,12 @@ namespace ASCII_GAME
                 {
                     Enemy_Stats = BigChungus();
                 }
+                //else fight pepefrog
                 else
                 {
                     Enemy_Stats = Pepefrog();
                 }
-                //else fight pepefrog
+
 
 
                 // Encounters random enemy for battle?? BigChungus as placeholder for now,
