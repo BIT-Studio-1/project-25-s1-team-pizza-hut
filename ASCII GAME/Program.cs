@@ -149,13 +149,29 @@ namespace ASCII_GAME
 
                 Console.WriteLine("This is the TextAdventure");
 
-                Pathway();
+                //initialise enemy stats
+                int[] Enemy_Stats = new int[6];
+
+                //Get pathway choice of left or right
+                String choice = Pathway();
+                
+                //if choice is Left then fight big chungus
+                if (choice == "L")
+                {
+                    Enemy_Stats = BigChungus();
+                }
+                else
+                {
+                    Enemy_Stats = Pepefrog();
+                }
+                //else fight pepefrog
+
 
                 // Encounters random enemy for battle?? BigChungus as placeholder for now,
                 // Could enemies show up according to the room or place the player is at according to random chance?
 
 
-                int[] Enemy_Stats = BigChungus();
+
                 Console.WriteLine("Does this work"); // Stops before this
                 Console.ReadLine();
                 Fight(Enemy_Stats);
@@ -321,7 +337,7 @@ namespace ASCII_GAME
             }
 
             // Rooms or Places
-            public static void Pathway()
+            public static String Pathway()
             {
                 //Pathway Chosen ascii
                 //When presented in story ask user to input L for left or R for right (path choice)
@@ -357,7 +373,7 @@ namespace ASCII_GAME
                         case "R":
                             Console.WriteLine("As you continue along suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
-                            Pepefrog();
+                            Pepefrog();                            
                             break;
 
                         default:
@@ -366,6 +382,8 @@ namespace ASCII_GAME
                     }
                     Console.Clear();
                 } while (choice == "");
+
+                return choice.ToUpper();
             }
         //something is wrong here
 
