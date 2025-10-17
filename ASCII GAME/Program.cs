@@ -147,7 +147,26 @@ namespace ASCII_GAME
             {
                 //If Adding to Adventure Code use this method
 
-                Console.WriteLine("This is the TextAdventure");
+                Console.WriteLine("Welcome to our text adventure game");
+                Thread.Sleep(3000);
+                Console.WriteLine("==========================================");
+                Console.WriteLine("       MEMEVERSE: RISE OF THE DANK");
+                Console.WriteLine("==========================================");
+                Console.WriteLine("         Press Enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+                Thread.Sleep(600);
+                Console.WriteLine("You awaken in a strange dimension...");
+                Thread.Sleep(600);
+                Console.WriteLine("Your mission: restore balance to the Memeverse");
+                Thread.Sleep(600);
+                Console.WriteLine("...before it’s consumed by cringe.");
+                Thread.Sleep(3000);
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to begin your quest.");
+                Console.ReadLine();
+                Console.WriteLine("");
+
 
                 //initialise enemy stats
                 int[] Enemy_Stats = new int[6];
@@ -362,9 +381,9 @@ namespace ASCII_GAME
                 Thread.Sleep(300);
                 Console.WriteLine("You come up to path with 2 options Left or Right"); 
                 Thread.Sleep(1000);
-                Console.WriteLine("To your left is a carrot field but there is no rabbit to be seen.");
+                Console.WriteLine("To your left is a field overflowing with carrots, but strangely, no rabbits.");
                 Thread.Sleep(1000);
-                Console.WriteLine("To your right is a forest with a small pond.");
+                Console.WriteLine("To your right, a mysterious forest with a large surrounding pond hums with energy.");
                 Thread.Sleep(1000);
                 Console.Write("Please enter L for left or R for right:");
                 string choice;
@@ -377,13 +396,17 @@ namespace ASCII_GAME
                     switch (choice.ToUpper())
                     {
                         case "L":
+                            Console.WriteLine("The grass is thick and there are so many carrots");
+                            Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
                             Thread.Sleep(3000);
                             BigChungus();
                             break;
 
                         case "R":
-                            Console.WriteLine("As you continue along suddenly something jumps out of the water at you!!");
+                            Console.WriteLine("You are walking along the path of the forest you notice ripples in the water...");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
                             Pepefrog();                            
                             break;
