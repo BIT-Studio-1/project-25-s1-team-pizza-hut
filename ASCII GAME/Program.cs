@@ -107,7 +107,48 @@ namespace ASCII_GAME
             {
                 //If Adding to Adventure Code use this method
 
-                Console.WriteLine("This is the TextAdventure");
+                Console.WriteLine("Welcome to our text adventure game");
+                Thread.Sleep(3000);
+                Console.WriteLine("==========================================");
+                Console.WriteLine("       MEMEVERSE: RISE OF THE DANK");
+                Console.WriteLine("==========================================");
+                Console.WriteLine("         Press Enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+                Thread.Sleep(600);
+                Console.WriteLine("You awaken in a strange dimension...");
+                Thread.Sleep(600);
+                Console.WriteLine("Your mission: restore balance to the Memeverse");
+                Thread.Sleep(600);
+                Console.WriteLine("...before it’s consumed by cringe.");
+                Thread.Sleep(3000);
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to begin your quest.");
+                Console.ReadLine();
+                Console.Clear();
+
+                Console.WriteLine("You’ve heard the stories since you were young...");
+                Thread.Sleep(800);
+                Console.WriteLine("Tales from your grandfather — the old Meme Hunter.");
+                Thread.Sleep(800);
+                Console.WriteLine("He lost a limb fighting the one who shall not be named —");
+                Console.WriteLine("a creature of pure distortion that shattered the Memeverse.");
+                Thread.Sleep(1000);
+                Console.WriteLine();
+                Console.WriteLine("Now, years later, the legends stir again.");
+                Thread.Sleep(800);
+                Console.WriteLine("Frogs whisper in the ponds. Carrots vanish overnight.");
+                Thread.Sleep(800);
+                Console.WriteLine();
+                Console.WriteLine("You grip your grandfather’s sword and take a breath.");
+                Thread.Sleep(800);
+                Console.WriteLine("It’s time to finish his fight.");
+                Thread.Sleep(800);
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to begin your journey.");
+                Console.ReadLine();
+                Console.Clear();
+
 
                 //initialise enemy stats
                 int[] Enemy_Stats = new int[6];
@@ -271,7 +312,7 @@ namespace ASCII_GAME
             {
                 //big chungus battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                int[] BigChungus_Stats = new int[6] {40, 40, 3, 5, 5, 2};
+                int[] BigChungus_Stats = new int[6] { 40, 40, 3, 5, 5, 2 };
 
                 string[] chungus = { "                                                                                                         \r\n                                            #               #                                            \r\n                                            #              ###                                           \r\n                                            ##             ###                                           \r\n                                            ###            ###                                           \r\n                                           #####          ####                                           \r\n                                           ######         #####                                          \r\n                                           ######        ######                                          \r\n                                          #### ##        #######                                         \r\n                                          #### ###      #### ###                                         \r\n                                          ####  ##      #### ###                                         \r\n                                          #### ####     ########                                         \r\n                                          #########    #########                                         \r\n                                          #########    #########                                         \r\n                                          ##########   #########                                         \r\n                                          ##########   #########                                         \r\n                                          #### #####   #########                                         \r\n                                          ##########   ########                                          \r\n                                           #########   ########                                          \r\n                                           ########    #######                                           \r\n                                            #######    #######                                           \r\n                                            #######     #####                                            \r\n                                             ######     #####                                            \r\n                                              #####      ###                                             \r\n                                              ####  ###### #                                             \r\n                                               ###############                                           \r\n                                                ################                                         \r\n                                               ##################                                        \r\n                                              ###################                                        \r\n                                              ####################                                       \r\n                                              ##########  ########                                       \r\n                                              ############ ######        #                               \r\n                                           # #####         #### ## ##                                    \r\n                                             ###########  #  ##  ######                                  \r\n                                             # #   ##########  ##   ##                                   \r\n                                             ###     #######      ####                                   \r\n                                            ######      ##########  ###                                  \r\n                                            ######       #######     ##                                  \r\n                                          #########                  #                                   \r\n                                       ################             ##                                   \r\n                                     ########################### ######                                  \r\n                                   ###########  #######   ###   #########                                \r\n                                 #############     ###  #       ###########                              \r\n                              ###############  #                        #####                            \r\n                            #################                          # #####                           \r\n                          #################                            ## ######                         \r\n                         #################                             ### #######                       \r\n                        #################  #                             # ########                      \r\n                       ################   ## ##                          ###########                     \r\n                      ###############   ####                             ############                    \r\n                     ##     ########  #######                             ######    ##                   \r\n                     ### #   ######  ###########                         #########  ##                   \r\n                    ## #       ##############  ##                        ##  ##   # # #                  \r\n                     # #  #        ############                          ##         # #                  \r\n                    ## #     ################## #                        #######      #                  \r\n                    ##        ################ # #                         ####  #   ##                  \r\n                     ##        ################# #                      ######  ## ###                   \r\n                      ###  ##   ################ ###     #            ######  ### ###                    \r\n                       ###   #   ################ #####             ###############                      \r\n                       #####  ################################################                           \r\n                       #######################################################                           \r\n                        #####################################################                            \r\n                        #####################################################                            \r\n                         ###################################################                             \r\n                          ################################################                               \r\n                           ################################################                              \r\n                            #################################################                            \r\n                              ##########################################   #  #                          \r\n                                 #####################################     #####                         \r\n                   ##############################################       ######                           \r\n                 #######    ###################     ######################                               \r\n                 #    ####     ##############                                                            \r\n                ##  ##              #####                                                                \r\n                #######     ########                                                                     \r\n                 ##############                                                                          \r\n                                                                                                         \r\n                                                                                                         " };
                 Console.WriteLine(chungus[0]);
@@ -280,6 +321,18 @@ namespace ASCII_GAME
 
                 return BigChungus_Stats;
             }
+            //public static int[] PeterGriffin()
+            //{
+                //Peter Griffin potential battle
+                //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
+                //int[] PeterGriffin_Stats = new int[6] { 60, 35, 3, 5, 5, 2 };
+
+                //string[] Peter = { "                                  ypnoijlpll                                                        \r\n                                z0qssrnqsmnspt                                                      \r\n                                esrnrskqilllfn                                                      \r\n                               ykssqcdbf9ossrjy                                                     \r\n                               yjssssspfssssrhyzrg5XTPPTY5grz                                       \r\n                               zbssssrqrsssgfx4TQPQRSSSSSSSST6u                                     \r\n                               zassssssssssezp0nlnssofmmlpoVS9njz                                   \r\n                               zfsssssssssr2n7y  xicdx  z98Xdqormy                                  \r\n                               yksssssssqemsqs8qssrotz zrrssssssprz      z                          \r\n                               xnssssssnisssslnsssqssnlnrsssssssshw                                 \r\n                               xqsssssrissssqerrrrssl1HF6ssssssssse                                 \r\n                              ylmsssssnrssssssss4EEEEEEECrssssssssex                                \r\n                              vfsfsssshosssssssr2EEEECFImsssssssssst                                \r\n                              ymq zvkj9msssjeosssog40cfsssssssssssto                                \r\n                              ysxw    losssslrsssssssssssssssssssssisz                              \r\n                                0jyyyzpqsssqhmsssssssssssssssssssrl gqz                             \r\n                                uz  zxssssnrsssssssssqssssssssssoqzwozqpx                           \r\n                                z7   zressr0sss0isss0ssssssssss9xzqrz  zot                          \r\n                                 sy  zvzipsssssssnhnssssssssqjtwqmuz      my                        \r\n                                 zj   xkzwkssssssssssssssslluznw          xqz                       \r\n                                  rq    tsz mmrssssssspnht  ysy            zjz                      \r\n                                  zmyzy  xpu  vchrkblrx   xlnw               pw                     \r\n                                   zbxs     pmzyzm   ozykgz i             zz  qtz                   \r\n                                    zgq        whv   yqz   jy             vv    mw                  \r\n                                    wj         zvy         u              bqz   zpt                 \r\n                                   tm          ul        vmz    zqnpuz   rv       mz                \r\n                                  vqz       zryc         umtvux     zwpwyn        xp                \r\n                                  sz          p          vzyxxxyz     zsn         xn                \r\n                                 vp          xu          khpsssqlmnsz spjz        jz                \r\n                                 b          zgx          trsssssssssku nl        iIz                \r\n                                z1         tqz          tossssssssssserqy     sp4FHh                \r\n                                 3         zxy         znssssssssssrpvz      0QHFLPb                \r\n                                 vr         zwz     ztnirsssssssssskx     t6FGPMPPNs                \r\n                                  voz        tz    umssssssssssssshzwutaUJEEJNPPPP6                 \r\n                                    xdnuhx  yotw   wfe9sssssssssqnqVDEEEFJPPPPPPPXq                 \r\n                                     mGEFQU9mx ypq lksssssssssss0KPJILNPPPPPPPPPQo                  \r\n                                     w6PPPLIFEhkkkkgkssssssssssqPPPPPPPPPPPPPPPOx                   \r\n                                      wWPPPPPPPZ0bc03N0psrqssqaPPPPPPPPPPPPPPQ8x                    \r\n                                     lQPPPPPPPPPPPPPPPPQONU1URPPPPPPPPPPPPPPUtz                     \r\n                                    mQPPPPPPPPPPPPPPPPOOPPPPPPPPPPPPPPPPPPPdz                       \r\n" };
+                //Console.WriteLine(Peter[0]);
+                //Console.WriteLine("PeterGriffin has appeared!!");
+                //Console.ReadLine();
+                //return PeterGriffin_Stats;
+            //}
 
             public static int[] DatBoi()
             {
@@ -311,9 +364,9 @@ namespace ASCII_GAME
                 Thread.Sleep(300);
                 Console.WriteLine("You come up to path with 2 options Left or Right"); 
                 Thread.Sleep(1000);
-                Console.WriteLine("To your left is a carrot field but there is no rabbit to be seen.");
+                Console.WriteLine("To your left is a field overflowing with carrots, but strangely, no rabbits.");
                 Thread.Sleep(1000);
-                Console.WriteLine("To your right is a forest with a small pond.");
+                Console.WriteLine("To your right, a mysterious forest with a large surrounding pond hums with energy.");
                 Thread.Sleep(1000);
                 Console.Write("Please enter L for left or R for right:");
                 string choice;
@@ -326,16 +379,21 @@ namespace ASCII_GAME
                     switch (choice.ToUpper())
                     {
                         case "L":
+                            Console.WriteLine("The grass is thick and there are so many carrots");
+                            Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
                             Thread.Sleep(3000);
                             BigChungus();
                             break;
 
                         case "R":
-                            Console.WriteLine("As you continue along suddenly something jumps out of the water at you!!");
+                            Console.WriteLine("You are walking along the path of the forest you notice ripples in the water...");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
-                            Pepefrog();                            
+                            Pepefrog();
                             break;
+
 
                         default:
                             Console.WriteLine("Invalid Input, Please Enter L or R");
