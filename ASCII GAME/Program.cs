@@ -215,6 +215,23 @@ namespace ASCII_GAME
                 Console.ReadLine();
                 // Check New Stats after a Fight
                 check();
+
+                //Dat Boi fight
+                Console.WriteLine("You have met the final boss: ");
+                Console.Write("\n\n.");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Clear();
+                Console.WriteLine("Dat Boi!!!");
+                Console.ReadLine();
+                Console.Clear();
+                Enemy_Stats = DatBoi();
+                Fight(Enemy_Stats);
+
+
             }
 
             public static void Fight(int[] E_Stats)
@@ -406,7 +423,7 @@ namespace ASCII_GAME
                 
                 do
                 {
-                    Console.Write("Please enter L for left or R for right:");
+                    Console.Write("Please enter L for left or R for right: ");
 
                     choice = Console.ReadLine();
                     //Choose pathway to next encounter
