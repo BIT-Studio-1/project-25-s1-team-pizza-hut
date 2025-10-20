@@ -239,9 +239,8 @@ namespace ASCII_GAME
                     Console.WriteLine($"You now have {current_HP}HP");
                     Console.ReadLine();
 
-                    if (current_HP <= 0)
+                    if (current_HP >= 0)
                     {
-
                         //Player's Turn
                         FightMenu(Enemy_Stats);
                     } 
@@ -261,6 +260,7 @@ namespace ASCII_GAME
                 int[] E_Stats = Enemy_Stats;
                 int e_Max_HP = E_Stats[0], e_Current_HP = E_Stats[1], e_ATT = E_Stats[2], e_DEF = E_Stats[3], e_SPD = E_Stats[4], e_LVL = E_Stats[5];
                 int choice;
+
                 do
                 {
                     Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
@@ -274,6 +274,7 @@ namespace ASCII_GAME
                     string temp = Console.ReadLine();
                     choice = Convert.ToInt32(temp);
                     Console.Clear();
+
 
                     switch (choice)
                     {
@@ -301,7 +302,8 @@ namespace ASCII_GAME
 
                     }
                     Console.Clear();
-                } while (choice != 1 || choice != 2 || choice != 3);          
+                } while (choice > 3);
+
             }
 
             public static void check()
