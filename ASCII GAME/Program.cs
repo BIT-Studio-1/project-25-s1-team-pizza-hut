@@ -150,7 +150,7 @@ namespace ASCII_GAME
                 //If Adding to Adventure Code use this method
 
                 Console.WriteLine("Welcome to our text adventure game");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.WriteLine("==========================================");
                 Console.WriteLine("       MEMEVERSE: RISE OF THE DANK");
                 Console.WriteLine("==========================================");
@@ -225,9 +225,7 @@ namespace ASCII_GAME
                 Console.Write(".");
                 Thread.Sleep(1000);
                 Console.Clear();
-                Console.WriteLine("Dat Boi!!!");
-                Console.ReadLine();
-                Console.Clear();
+
                 Enemy_Stats = DatBoi();
                 Fight(Enemy_Stats);
 
@@ -389,6 +387,7 @@ namespace ASCII_GAME
             public static int[] DatBoi()
             {
                 Console.Clear();
+                Console.WriteLine("Dat Boi!!!");
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] DatBoi_Stats = new int[6] { 60, 60, 3, 5, 7, 4 };
 
