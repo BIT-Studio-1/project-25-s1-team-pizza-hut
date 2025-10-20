@@ -25,6 +25,7 @@ namespace ASCII_GAME
             Console.Write(".");
             Thread.Sleep(1000);
             Console.Clear();
+            Console.WriteLine("\x1b[3J");
 
         }
         public static void GuyatComputer()
@@ -67,7 +68,7 @@ namespace ASCII_GAME
                 { 
 
                 }
-                Console.Clear();
+                
 
                 switch (choice)
                 {
@@ -97,6 +98,8 @@ namespace ASCII_GAME
                 }
 
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
+
             } while (choice != 0);
         }
 
@@ -157,6 +160,7 @@ namespace ASCII_GAME
                 Console.WriteLine("         Press Enter to continue");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
                 Thread.Sleep(600);
                 Console.WriteLine("You awaken in a strange dimension...");
                 Thread.Sleep(600);
@@ -168,6 +172,7 @@ namespace ASCII_GAME
                 Console.WriteLine("Press ENTER to begin your quest.");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
                 Console.WriteLine("You’ve heard the stories since you were young...");
                 Thread.Sleep(800);
@@ -190,6 +195,7 @@ namespace ASCII_GAME
                 Console.WriteLine("Press ENTER to begin your journey.");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
 
                 //initialise enemy stats
@@ -212,6 +218,11 @@ namespace ASCII_GAME
 
                 Console.ReadLine();
                 Fight(Enemy_Stats);
+                if (current_HP <= 0)
+                {
+                    // Player has Died
+                    PlayerLoses();
+                }
                 Console.ReadLine();
                 // Check New Stats after a Fight
                 check();
@@ -243,10 +254,6 @@ namespace ASCII_GAME
                 {
                     // Player Has Defeated the Enemy
                 }
-                else if (current_HP <= 0)
-                {
-                    // Player has Died
-                }
             }
 
             public static void FightMenu(int[] E_Stats)
@@ -266,6 +273,7 @@ namespace ASCII_GAME
                     string temp = Console.ReadLine();
                     choice = Convert.ToInt32(temp);
                     Console.Clear();
+                    Console.WriteLine("\x1b[3J");
 
 
                     switch (choice)
@@ -294,6 +302,7 @@ namespace ASCII_GAME
 
                     }
                     Console.Clear();
+                    Console.WriteLine("\x1b[3J");
                 } while (choice > 3);
 
             }
@@ -353,6 +362,7 @@ namespace ASCII_GAME
                 Console.WriteLine(chungus[0]);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Big Chungus has appeared!!");
+                Console.WriteLine("HP 40/40");
 
                 return BigChungus_Stats;
             }
@@ -415,6 +425,7 @@ namespace ASCII_GAME
                     {
                         case "L":
                             Console.Clear();
+                            Console.WriteLine("\x1b[3J");
                             Console.WriteLine("The grass is thick and there are so many carrots");
                             Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
@@ -424,6 +435,7 @@ namespace ASCII_GAME
 
                         case "R":
                             Console.Clear();
+                            Console.WriteLine("\x1b[3J");
                             Console.WriteLine("You are walking along the path of the forest you notice ripples in the water...");
                             Thread.Sleep(2000);
                             Console.WriteLine("suddenly something jumps out of the water at you!!");
@@ -439,6 +451,7 @@ namespace ASCII_GAME
                     
                 } while (choice == "");
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
                 return choice.ToUpper();
             }
@@ -489,7 +502,7 @@ namespace ASCII_GAME
             Intro();
            
             GuyatComputer();
-            Console.WriteLine("You sit down at a computer. \nIt looks like this:");
+            Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
             //Starting up Computer Animation?, before proceeding into Menu
 
             Menu();
