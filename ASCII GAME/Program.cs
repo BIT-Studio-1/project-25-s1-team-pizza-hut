@@ -153,7 +153,7 @@ namespace ASCII_GAME
                 //If Adding to Adventure Code use this method
 
                 Console.WriteLine("Welcome to our text adventure game");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.WriteLine("==========================================");
                 Console.WriteLine("       MEMEVERSE: RISE OF THE DANK");
                 Console.WriteLine("==========================================");
@@ -226,6 +226,21 @@ namespace ASCII_GAME
                 Console.ReadLine();
                 // Check New Stats after a Fight
                 check();
+
+                //Dat Boi fight
+                Console.WriteLine("You have met the final boss: ");
+                Console.Write("\n\n.");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Clear();
+
+                Enemy_Stats = DatBoi();
+                Fight(Enemy_Stats);
+
+
             }
 
             public static void Fight(int[] E_Stats)
@@ -381,15 +396,19 @@ namespace ASCII_GAME
 
             public static int[] DatBoi()
             {
+                Console.Clear();
+                Console.WriteLine("Dat Boi!!!");
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] DatBoi_Stats = new int[6] { 60, 60, 3, 5, 7, 4 };
 
                 //potential final boss dat boi
                 string[] datBoi = { "                                ++++++++++              \r\n                            +++++++++++$&Xxx            \r\n                            XXXXXx+++++XXxxxX           \r\n                             $$$$$$XXx+++++++x          \r\n                              $$$$$$$$$$Xx++++X         \r\n                                $$$$$XXXXx+++++         \r\n                                 XXXXXxxx++++++x        \r\n                                 XXxxxxx+++++++Xx       \r\n                                xXXxxxxxxxx++++Xxx      \r\n                           +XXx+xXXXxxxxxxxX+++++x      \r\n                      ++++++xxXX$$xXxxx+++++xX+++xX     \r\n                 +++++++xXXX$$$   XXx+++++++xxX+++++++  \r\n              ;+++xxX$$$$$        Xxx+++++++x++++xX+    \r\n         +xXXXXX$                xXXx++++xxxx++xXX$     \r\n           +XX$$                  XXXxxxxxxxxxxx++X     \r\n                                  XXXXXXXXXXXXXX+++x    \r\n                                 XxXXXXXXXXXXXXXx+++x   \r\n                                xxxxXXXXXXXXXX$$X++++x  \r\n                               XxxXXXX$$$$$$$$$$$++++xx \r\n                              XXXXXXX$$$&$$$$$$$$x++++xX\r\n                              XXXX$$$$$$&&&$$$$&$X+++++X\r\n                            xxX$$&&$ $X$$$$XX$$$&$x+++xX\r\n                           xxX$$$     $& x+x      X+++xX\r\n                           xxxX$$        +xX      Xx++xX\r\n                           XX+xXX$       +x        +++XX\r\n                             XxxxX$      ++       ++++xX\r\n                               XXxX$$   +x++     x++++XX\r\n                                  XX$$&&&$xx$&&  x+++xX \r\n                                 $$$$$$&$$xX&&&&$+++xXX \r\n                               $$$$$$$XX$x+X$&&&$+++xXX \r\n                              $$$$$$$$$XX++xX $$X+++X$  \r\n                             $$$X$  X$ +X;+X  &$x++xX   \r\n                            $$$$$$& $$X+x+++ &$x+++X$X  \r\n                           X$$x$ $$$ $X+X+++$$ x++x$$$  \r\n                           $$x$   &$$$xXX++$$ Xx+xX$$$$ \r\n                          X$$X$$$$$  $xxXX+XXXX++X$$$$$ \r\n                          $$X$  $&$&$$xX$$+xx$x+xX$$$$$ \r\n                          $$X&  &$$&&XX$$x++++++xX $$$$ \r\n                          $$X&$$$$&$&&$&$$x+ x++X$$$$$$ \r\n                          $$$$$   $&$$$$$$++;++XX$$$$$  \r\n                          X$$X$$$$$$$$$$$$+Xx++$  $$$$  \r\n                           $$X$$$$ $$$$$$$+Xx+X $$$$$   \r\n                           $$$$$  $$$ $$&X+++xX $$$$$   \r\n   &&&&&&&&&&&&&&&&&&&&&&&&&&$$$$$$$ $$$ $+++++X$$$$    \r\n            &&&&&&&&&&&&&&&&&&&$$$&&&&&& XxX$$$$Xx+     \r\n                           &&&&&&$$$$&&&&&&&$$$&&&      \r\n                      &&&&&   &&&&&&$$$$$&&&&&&&&       \r\n                      &&&&&&&&&&&&&&&&&&&&&&&&&         " };
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 foreach (string boi in datBoi)
                 {
                     Console.WriteLine(boi);
                 }
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadLine();
 
                 return DatBoi_Stats;
@@ -416,7 +435,7 @@ namespace ASCII_GAME
                 
                 do
                 {
-                    Console.Write("Please enter L for left or R for right:");
+                    Console.Write("Please enter L for left or R for right: ");
 
                     choice = Console.ReadLine();
                     //Choose pathway to next encounter
