@@ -145,7 +145,7 @@ namespace ASCII_GAME
             // Text Adventure Code and Enemies
 
             //Character Stats
-            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
+            public static int max_HP = 100, current_HP = 100, DEF = 2, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
 
 
             public static void Adventure()
@@ -295,8 +295,11 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
-                            E_Stats[1] -= ATT;
-                            Console.WriteLine($"You deal {ATT} damage!");
+                            damage = (ATT - DEF);
+                            if (damage <= 0)
+                            { damage = 0; }
+                            E_Stats[1] -= damage;
+                            Console.WriteLine($"You deal {damage} damage!");
                             Console.WriteLine($"The enemy now has {E_Stats[1]}HP");
                             Console.ReadLine();
                             break;
@@ -529,21 +532,21 @@ namespace ASCII_GAME
 
 
 
-            bool win = true;
+            //bool win = true;
 
-            //play game
+            ////play game
 
-            //if win
-            if (win == true)
-            {
-                Console.WriteLine("You won! The pizza was delivered ahead of time and is still hot!");
-            }
+            ////if win
+            //if (win == true)
+            //{
+            //    Console.WriteLine("You won! The pizza was delivered ahead of time and is still hot!");
+            //}
 
-            //if lose
-            else
-            {
-                Console.WriteLine("You lost! You take a bite of the pizza and pass away.");
-            }
+            ////if lose
+            //else
+            //{
+            //    Console.WriteLine("You lost! You take a bite of the pizza and pass away.");
+            //}
             //insert animation
 
 
