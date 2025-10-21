@@ -245,6 +245,7 @@ namespace ASCII_GAME
 
             public static void Fight(int[] E_Stats)
             {
+                int damage;
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
                 {
@@ -254,8 +255,11 @@ namespace ASCII_GAME
                 while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
-                    current_HP -= E_Stats[2];
-                    Console.WriteLine($"The enemy deals {E_Stats[2]} damage!");
+                    damage = (E_Stats[2] - DEF);
+                    if (damage <= 0)
+                    { damage = 0;  }
+                    current_HP -= damage;
+                    Console.WriteLine($"The enemy deals {damage} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
                     Console.ReadLine();
 
@@ -298,7 +302,7 @@ namespace ASCII_GAME
                             damage = (ATT - DEF);
                             if (damage <= 0)
                             { damage = 0; }
-                            E_Stats[1] -= damage;
+                            E_Stats[1] -= damage; //Enemy Current HP - Damage
                             Console.WriteLine($"You deal {damage} damage!");
                             Console.WriteLine($"The enemy now has {E_Stats[1]}HP");
                             Console.ReadLine();
