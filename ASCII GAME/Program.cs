@@ -13,7 +13,9 @@ namespace ASCII_GAME
         {
 
             string[] pizzaHutLogo = { "                                         ######++##                        \r\n                                  ############++++##                       \r\n                            ############++++++++++##                       \r\n                          #######+++++++++++++++++###                      \r\n                         ##++++++++++++++++++++++++###                     \r\n                        ##+++++++++++++++++++++++++##########              \r\n                       ##++++++++++++++++++++++++++++++###########         \r\n                      #++++++++++++++++++++++++++++++++++++++##########    \r\n                    ##++++++++++++++++++++++++++++++++++++++++++++######## \r\n                #####++++++++++++++++++++++++++++++++##############++++### \r\n             #####++++++++++++++++++++++###########################++++    \r\n          #####+++++++++++++++################################             \r\n       #####++++++++++###########+++######                                 \r\n     ####+++++#################+++++                                       \r\n  #####################      ++++++                                        \r\n##############               ++++             ############       ########  \r\n#######                       +               #############   ###########  \r\n            #######           ## ############# ##########   ######  ####   \r\n        ##############      #### ############    #######   ################\r\n        ###############    #####      ######   #######     ################\r\n          ####   #######  #####     ######   #####################         \r\n         #####     ##### #####   ########   ###############                \r\n        #####      ##### ##### ############# ##     ##                     \r\n       #####     ######  #### #########################   ###              \r\n      ######   ######    ###  #####################     #####              \r\n     ##############      ##      ###                   ############        \r\n    ######  #           ###     ####            # #############            \r\n    ######             ####    ####  ###       ### #######                 \r\n   ######             ####     ####  ####     ####   ####                  \r\n   #####             #####    ###########   ######  #####                  \r\n  #####             ############### #############   ####                   \r\n  #####        ###################  #############   ###          .-...     \r\n  ####         ###################  #######   ###   ##+..............-     \r\n   #             ######     #####     ##        ....+-..........    ###    \r\n                 ######     ####          ................          ###    \r\n                 #####       ##       ...............                      \r\n                 #####            .............                            \r\n                 ####        -............--                               \r\n                         -..............                                   \r\n                      .............                                        \r\n                      ........-                                            " };
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             foreach (string logo in pizzaHutLogo) { Console.WriteLine(logo); }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Pizza Hut Games");
             Thread.Sleep(1000);
             Console.Write("\n\n.");
@@ -23,6 +25,7 @@ namespace ASCII_GAME
             Console.Write(".");
             Thread.Sleep(1000);
             Console.Clear();
+            Console.WriteLine("\x1b[3J");
 
         }
         public static void GuyatComputer()
@@ -65,7 +68,7 @@ namespace ASCII_GAME
                 { 
 
                 }
-                Console.Clear();
+                
 
                 switch (choice)
                 {
@@ -92,6 +95,8 @@ namespace ASCII_GAME
                 }
 
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
+
             } while (choice != 0);
         }
 
@@ -100,21 +105,22 @@ namespace ASCII_GAME
             // Text Adventure Code and Enemies
 
             //Character Stats
-            public static int max_HP = 100, current_HP = 100, DEF = 5, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
-
+            public static int max_HP = 100, current_HP = 100, DEF = 2, ATT = 10, SPD = 10, LVL = 1, XP = 0, Required = 100; //PUBLICALLY AVAILABLE PLAYER STATS
+            public static string Enemy_Name = "N/A";
 
             public static void Adventure()
             {
                 //If Adding to Adventure Code use this method
 
                 Console.WriteLine("Welcome to our text adventure game");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.WriteLine("==========================================");
                 Console.WriteLine("       MEMEVERSE: RISE OF THE DANK");
                 Console.WriteLine("==========================================");
                 Console.WriteLine("         Press Enter to continue");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
                 Thread.Sleep(600);
                 Console.WriteLine("You awaken in a strange dimension...");
                 Thread.Sleep(600);
@@ -126,6 +132,7 @@ namespace ASCII_GAME
                 Console.WriteLine("Press ENTER to begin your quest.");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
                 Console.WriteLine("You’ve heard the stories since you were young...");
                 Thread.Sleep(800);
@@ -148,6 +155,7 @@ namespace ASCII_GAME
                 Console.WriteLine("Press ENTER to begin your journey.");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
 
                 //initialise enemy stats
@@ -169,59 +177,71 @@ namespace ASCII_GAME
 
 
 
-                // Encounters random enemy for battle?? BigChungus as placeholder for now,
-                // Could enemies show up according to the room or place the player is at according to random chance?
-
-
-
-                Console.WriteLine("Does this work"); // Stops before this
                 Console.ReadLine();
                 Fight(Enemy_Stats);
+                if (current_HP <= 0)
+                {
+                    // Player has Died
+                    PlayerLoses();
+                }
                 Console.ReadLine();
                 // Check New Stats after a Fight
                 check();
+
+                //Dat Boi fight
+                Console.WriteLine("You have met the final boss: ");
+                Console.Write("\n\n.");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Clear();
+
+                Enemy_Stats = DatBoi();
+                Fight(Enemy_Stats);
+
+
             }
 
             public static void Fight(int[] E_Stats)
             {
+                int damage;
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                int[] Enemy_Stats = E_Stats;
-                int e_Max_HP = Enemy_Stats[0], e_Current_HP = Enemy_Stats[1], e_ATT = Enemy_Stats[2], e_DEF = Enemy_Stats[3], e_SPD = Enemy_Stats[4], e_LVL = Enemy_Stats[5];
-                if (SPD > e_SPD || (SPD == e_SPD && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
+                if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
                 {
                     //Player starts first
-                    FightMenu(Enemy_Stats);
+                    FightMenu(E_Stats);
+                    Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                 }
-                while (e_Current_HP > 0 && current_HP > 0) // While the enemy and player are both alive, loop
+                while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
-                    current_HP -= e_ATT;
-                    Console.WriteLine($"The enemy deals {e_ATT} damage!");
+                    damage = (E_Stats[2] - DEF);
+                    if (damage <= 0)
+                    { damage = 0;  }
+                    current_HP -= damage;
+                    Console.WriteLine($"The enemy deals {damage} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
                     Console.ReadLine();
 
-                    if (current_HP <= 0)
+                    if (current_HP >= 0)
                     {
-
                         //Player's Turn
-                        FightMenu(Enemy_Stats);
+                        FightMenu(E_Stats);
+                        Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                     } 
                 }
-                if (e_Current_HP <= 0)
+                if (E_Stats[1] <= 0)
                 {
                     // Player Has Defeated the Enemy
                 }
-                else if (current_HP <= 0)
-                {
-                    // Player has Died
-                }
             }
 
-            public static void FightMenu(int[] Enemy_Stats)
+            public static void FightMenu(int[] E_Stats)
             {
-                int[] E_Stats = Enemy_Stats;
-                int e_Max_HP = E_Stats[0], e_Current_HP = E_Stats[1], e_ATT = E_Stats[2], e_DEF = E_Stats[3], e_SPD = E_Stats[4], e_LVL = E_Stats[5];
-                int choice;
+                int choice, damage;
+
                 do
                 {
                     Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
@@ -235,15 +255,25 @@ namespace ASCII_GAME
                     string temp = Console.ReadLine();
                     choice = Convert.ToInt32(temp);
                     Console.Clear();
+                    Console.WriteLine("\x1b[3J");
+
 
                     switch (choice)
                     {
                         case 1:
                             Console.WriteLine("You attack");
-                            e_Current_HP -= ATT;
-                            Console.WriteLine($"You deal {ATT} damage!");
-                            Console.WriteLine($"The enemy now has {e_Current_HP}HP");
-                            Thread.Sleep(1000);
+                            damage = (ATT - DEF);
+                            if (damage <= 0)
+                            { 
+                                damage = 0; 
+                            }
+                            E_Stats[1] -= damage; //Enemy Current HP - Damage
+                            if (E_Stats[1] <= 0)
+                            { 
+                                E_Stats[1] = 0; 
+                            }
+                            Console.WriteLine($"You deal {damage} damage!");
+                            Console.ReadLine();
                             break;
 
                         case 2:
@@ -262,7 +292,9 @@ namespace ASCII_GAME
 
                     }
                     Console.Clear();
-                } while (choice != 1 || choice != 2 || choice != 3);          
+                    Console.WriteLine("\x1b[3J");
+                } while (choice != 1);
+
             }
 
             public static void check()
@@ -300,11 +332,13 @@ namespace ASCII_GAME
                 //Pepe battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] Pepefrog_Stats = new int[6] { 50, 50, 3, 5, 5, 2};
+                Enemy_Name = "Pepe Frog";
 
                 string[] pepe = { "                     @%##******##%@          @@%###%@                 \r\n                   %#*++++++++++++**#%   @#***++++++***%              \r\n                 %**+++++++++++++++++**#**++++++++++++++*@            \r\n               %#*+++++++++++++++++++++***+++++++++++++++*%           \r\n              @*+++++++**#*+++++++*##*++**++++++++++++++++*@          \r\n             %*++++++*#+++++++++++++++**###################%%         \r\n            %*+++++++++++++++++++++++++++*#*+++++++++++++++++*#%%     \r\n           %*+++++++++++++++******###*******#**+++****######*****%    \r\n         %%*+++++++++++++*********************##*#*****************#@ \r\n      @#*+**++++++++++********+++++++++++++++*****+++++++**********#%@\r\n     %*++***+++++++********+++++++**++==-::::::=+**+=--:=%%%%#*:..:-+%\r\n    %*+++**++++++++***##***#*+=-::+%=*@@@@*....-:......*@@+#@@@@#....=\r\n   #*+++++++++++++++++++**=......#@@@@@+-%@%:.::......=@@@@@*:#@@+..=#\r\n  %*++++++++++++++++++++**++*=..-%@@*+@@@@@@%*+#*++=:.+@@@@@@@@%#**#% \r\n %#+++++++++++++++++++++++*##***+++++++++++*****++++++++++++++++*#@   \r\n #++++++++++++++++++++++++++++++***********+++++++++++++++++++*#@     \r\n@*+++++++++++++++++++++++++++++++++++***#*++++++************#%@       \r\n%++++++++++++++++++++++++++++++++*****+++++++++++++****++++++*%       \r\n%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#@     \r\n#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*@    \r\n#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*#    \r\n#+++++++++++++++++++++#######*++++++++++++++++++++++++++++++++++*%@   \r\n#++++++++++++++++++*#*************#####*++++++++++++++++++++*##***#%  \r\n%+++++++++++++++++******####*******************##########*********%   \r\n%+++++++++++++++++***************#####*************************#@     \r\n@*++++++++++++++**+**###**##************************************@     \r\n #*+++++++++++++****++++++++++++******************************#%      \r\n @%**+++++++++++++****+++++++++++++++++++++++++++********%@@@         \r\n@%###*#**+++++++++++++++++++++++++++++++++++++++++++++*#%             \r\n@#######***##*++++++++++++++++++++++++++++++++++++*#%%                \r\n@###########*+****#####***+++++++++++++++++**##%%%                    \r\n@#############%%%#**+++++++++++++++++++++++*#%##%@                    \r\n@############################%%%%%%%%%%###########%@                  \r\n@###################################################%%@               \r\n@#####################################################%@              \r\n@%##################%#%######%#%#######################@              " };
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(pepe[0]);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Pepe the frog has appeared!!");
-                Console.ReadLine();
 
                 return Pepefrog_Stats;
             }
@@ -313,11 +347,14 @@ namespace ASCII_GAME
                 //big chungus battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] BigChungus_Stats = new int[6] { 40, 40, 3, 5, 5, 2 };
+                Enemy_Name = "Big Chungus";
 
                 string[] chungus = { "                                                                                                         \r\n                                            #               #                                            \r\n                                            #              ###                                           \r\n                                            ##             ###                                           \r\n                                            ###            ###                                           \r\n                                           #####          ####                                           \r\n                                           ######         #####                                          \r\n                                           ######        ######                                          \r\n                                          #### ##        #######                                         \r\n                                          #### ###      #### ###                                         \r\n                                          ####  ##      #### ###                                         \r\n                                          #### ####     ########                                         \r\n                                          #########    #########                                         \r\n                                          #########    #########                                         \r\n                                          ##########   #########                                         \r\n                                          ##########   #########                                         \r\n                                          #### #####   #########                                         \r\n                                          ##########   ########                                          \r\n                                           #########   ########                                          \r\n                                           ########    #######                                           \r\n                                            #######    #######                                           \r\n                                            #######     #####                                            \r\n                                             ######     #####                                            \r\n                                              #####      ###                                             \r\n                                              ####  ###### #                                             \r\n                                               ###############                                           \r\n                                                ################                                         \r\n                                               ##################                                        \r\n                                              ###################                                        \r\n                                              ####################                                       \r\n                                              ##########  ########                                       \r\n                                              ############ ######        #                               \r\n                                           # #####         #### ## ##                                    \r\n                                             ###########  #  ##  ######                                  \r\n                                             # #   ##########  ##   ##                                   \r\n                                             ###     #######      ####                                   \r\n                                            ######      ##########  ###                                  \r\n                                            ######       #######     ##                                  \r\n                                          #########                  #                                   \r\n                                       ################             ##                                   \r\n                                     ########################### ######                                  \r\n                                   ###########  #######   ###   #########                                \r\n                                 #############     ###  #       ###########                              \r\n                              ###############  #                        #####                            \r\n                            #################                          # #####                           \r\n                          #################                            ## ######                         \r\n                         #################                             ### #######                       \r\n                        #################  #                             # ########                      \r\n                       ################   ## ##                          ###########                     \r\n                      ###############   ####                             ############                    \r\n                     ##     ########  #######                             ######    ##                   \r\n                     ### #   ######  ###########                         #########  ##                   \r\n                    ## #       ##############  ##                        ##  ##   # # #                  \r\n                     # #  #        ############                          ##         # #                  \r\n                    ## #     ################## #                        #######      #                  \r\n                    ##        ################ # #                         ####  #   ##                  \r\n                     ##        ################# #                      ######  ## ###                   \r\n                      ###  ##   ################ ###     #            ######  ### ###                    \r\n                       ###   #   ################ #####             ###############                      \r\n                       #####  ################################################                           \r\n                       #######################################################                           \r\n                        #####################################################                            \r\n                        #####################################################                            \r\n                         ###################################################                             \r\n                          ################################################                               \r\n                           ################################################                              \r\n                            #################################################                            \r\n                              ##########################################   #  #                          \r\n                                 #####################################     #####                         \r\n                   ##############################################       ######                           \r\n                 #######    ###################     ######################                               \r\n                 #    ####     ##############                                                            \r\n                ##  ##              #####                                                                \r\n                #######     ########                                                                     \r\n                 ##############                                                                          \r\n                                                                                                         \r\n                                                                                                         " };
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine(chungus[0]);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Big Chungus has appeared!!");
-                Console.ReadLine();
+                Console.WriteLine("HP 40/40");
 
                 return BigChungus_Stats;
             }
@@ -336,15 +373,20 @@ namespace ASCII_GAME
 
             public static int[] DatBoi()
             {
+                Console.Clear();
+                Console.WriteLine("Dat Boi!!!");
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
                 int[] DatBoi_Stats = new int[6] { 60, 60, 3, 5, 7, 4 };
+                Enemy_Name = "Dat Boi";
 
                 //potential final boss dat boi
                 string[] datBoi = { "                                ++++++++++              \r\n                            +++++++++++$&Xxx            \r\n                            XXXXXx+++++XXxxxX           \r\n                             $$$$$$XXx+++++++x          \r\n                              $$$$$$$$$$Xx++++X         \r\n                                $$$$$XXXXx+++++         \r\n                                 XXXXXxxx++++++x        \r\n                                 XXxxxxx+++++++Xx       \r\n                                xXXxxxxxxxx++++Xxx      \r\n                           +XXx+xXXXxxxxxxxX+++++x      \r\n                      ++++++xxXX$$xXxxx+++++xX+++xX     \r\n                 +++++++xXXX$$$   XXx+++++++xxX+++++++  \r\n              ;+++xxX$$$$$        Xxx+++++++x++++xX+    \r\n         +xXXXXX$                xXXx++++xxxx++xXX$     \r\n           +XX$$                  XXXxxxxxxxxxxx++X     \r\n                                  XXXXXXXXXXXXXX+++x    \r\n                                 XxXXXXXXXXXXXXXx+++x   \r\n                                xxxxXXXXXXXXXX$$X++++x  \r\n                               XxxXXXX$$$$$$$$$$$++++xx \r\n                              XXXXXXX$$$&$$$$$$$$x++++xX\r\n                              XXXX$$$$$$&&&$$$$&$X+++++X\r\n                            xxX$$&&$ $X$$$$XX$$$&$x+++xX\r\n                           xxX$$$     $& x+x      X+++xX\r\n                           xxxX$$        +xX      Xx++xX\r\n                           XX+xXX$       +x        +++XX\r\n                             XxxxX$      ++       ++++xX\r\n                               XXxX$$   +x++     x++++XX\r\n                                  XX$$&&&$xx$&&  x+++xX \r\n                                 $$$$$$&$$xX&&&&$+++xXX \r\n                               $$$$$$$XX$x+X$&&&$+++xXX \r\n                              $$$$$$$$$XX++xX $$X+++X$  \r\n                             $$$X$  X$ +X;+X  &$x++xX   \r\n                            $$$$$$& $$X+x+++ &$x+++X$X  \r\n                           X$$x$ $$$ $X+X+++$$ x++x$$$  \r\n                           $$x$   &$$$xXX++$$ Xx+xX$$$$ \r\n                          X$$X$$$$$  $xxXX+XXXX++X$$$$$ \r\n                          $$X$  $&$&$$xX$$+xx$x+xX$$$$$ \r\n                          $$X&  &$$&&XX$$x++++++xX $$$$ \r\n                          $$X&$$$$&$&&$&$$x+ x++X$$$$$$ \r\n                          $$$$$   $&$$$$$$++;++XX$$$$$  \r\n                          X$$X$$$$$$$$$$$$+Xx++$  $$$$  \r\n                           $$X$$$$ $$$$$$$+Xx+X $$$$$   \r\n                           $$$$$  $$$ $$&X+++xX $$$$$   \r\n   &&&&&&&&&&&&&&&&&&&&&&&&&&$$$$$$$ $$$ $+++++X$$$$    \r\n            &&&&&&&&&&&&&&&&&&&$$$&&&&&& XxX$$$$Xx+     \r\n                           &&&&&&$$$$&&&&&&&$$$&&&      \r\n                      &&&&&   &&&&&&$$$$$&&&&&&&&       \r\n                      &&&&&&&&&&&&&&&&&&&&&&&&&         " };
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 foreach (string boi in datBoi)
                 {
                     Console.WriteLine(boi);
                 }
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadLine();
 
                 return DatBoi_Stats;
@@ -353,6 +395,7 @@ namespace ASCII_GAME
             // Rooms or Places
             public static String Pathway()
             {
+                string choice;
                 //Pathway Chosen ascii
                 //When presented in story ask user to input L for left or R for right (path choice)
                 string[] Pathway = { "                                                                                                    \r\n                                                                                                    \r\n                  AAAAAA                                                    AAAAAA                  \r\n                AAAAAAAAA                                                  AAAAAAAAA                \r\n              AAAAAAAAAAA                                                  AAAAAAAAAAA              \r\n            AAAAAAA AAAAA                                                  AAAAA AAAAAAA            \r\n          AAAAAAA   AAAAA                                                  AAAAA   AAAAAAA          \r\n        AAAAAAAA    AAAAAAAAAAAA                                    AAAAAAAAAAAA    AAAAAAAA        \r\n       AAAAAAA      AAAAAAAAAAAAAAAAA                          AAAAAAAAAAAAAAAAA      AAAAAAA       \r\n     AAAAAAA         AAAAAAAAAAAAAAAAAAAA                  AAAAAAAAAAAAAAAAAAAA         AAAAAAA     \r\n   AAAAAAA                       AAAAAAAAAAA            AAAAAAAAAAAA                      AAAAAAA   \r\n AAAAAAA                             AAAAAAAAA        AAAAAAAAA                             AAAAAAA \r\n AAAAAA                                 AAAAAAAA    AAAAAAAA                                  AAAAA \r\n AAAAAAA                                   AAAAAAAAAAAAAA                                   AAAAAAA \r\n  AAAAAAAA                                   AAAAAAAAAA                                   AAAAAAAA  \r\n    AAAAAAA                                    AAAAAA                                    AAAAAAA    \r\n      AAAAAAA       AAAAAAAAAAA                 AAAA                 AAAAAAAAAAA       AAAAAAA      \r\n        AAAAAAA     AAAAAAAAAAAAAAA                              AAAAAAAAAAAAAAA     AAAAAAA        \r\n          AAAAAAA   AAAAAAAAAAAAAAAAA                          AAAAAAAAAAAAAAAAA   AAAAAAA          \r\n            AAAAAAA AAAAA      AAAAAAAA                      AAAAAAAA      AAAAA AAAAAAAA           \r\n             AAAAAAAAAAAA        AAAAAAA                    AAAAAAA        AAAAAAAAAAAA             \r\n               AAAAAAAAAA          AAAAAAA                AAAAAAA          AAAAAAAAAA               \r\n                 AAAAAAA             AAAAAA               AAAAA             AAAAAAA                 \r\n                                      AAAAA              AAAAA                                      \r\n                                       AAAAA            AAAAA                                       \r\n                                       AAAAA            AAAAA                                       \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAA          AAAAA                                        \r\n                                        AAAAAAAAAAAAAAAAAAAA                                        \r\n                                        AAAAAAAAAAAAAAAAAAAA                                        \r\n                                         AAAAAAAAAAAAAAAAAA                                         \r\n                                                                                                    " };
@@ -360,7 +403,6 @@ namespace ASCII_GAME
                 {
                     Console.WriteLine(Path);
                 }
-                Console.ReadLine();
                 Thread.Sleep(300);
                 Console.WriteLine("You come up to path with 2 options Left or Right"); 
                 Thread.Sleep(1000);
@@ -368,17 +410,19 @@ namespace ASCII_GAME
                 Thread.Sleep(1000);
                 Console.WriteLine("To your right, a mysterious forest with a large surrounding pond hums with energy.");
                 Thread.Sleep(1000);
-                Console.Write("Please enter L for left or R for right:");
-                string choice;
                 
-                choice = Console.ReadLine();
-                //Choose pathway to next encounter
                 do
                 {
-                    Console.Clear();
+                    Console.Write("Please enter L for left or R for right: ");
+
+                    choice = Console.ReadLine();
+                    //Choose pathway to next encounter
+
                     switch (choice.ToUpper())
                     {
                         case "L":
+                            Console.Clear();
+                            Console.WriteLine("\x1b[3J");
                             Console.WriteLine("The grass is thick and there are so many carrots");
                             Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
@@ -387,6 +431,8 @@ namespace ASCII_GAME
                             break;
 
                         case "R":
+                            Console.Clear();
+                            Console.WriteLine("\x1b[3J");
                             Console.WriteLine("You are walking along the path of the forest you notice ripples in the water...");
                             Thread.Sleep(2000);
                             Console.WriteLine("suddenly something jumps out of the water at you!!");
@@ -396,15 +442,16 @@ namespace ASCII_GAME
 
 
                         default:
-                            Console.WriteLine("Invalid Input, Please Enter L or R");
+                            Console.WriteLine("\nInvalid Input");
                             break;
                     }
-                    Console.Clear();
+                    
                 } while (choice == "");
+                Console.Clear();
+                Console.WriteLine("\x1b[3J");
 
                 return choice.ToUpper();
             }
-        //something is wrong here
 
                 
             
@@ -452,7 +499,7 @@ namespace ASCII_GAME
             Intro();
            
             GuyatComputer();
-            Console.WriteLine("You sit down at a computer. \nIt looks like this:");
+            Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
             //Starting up Computer Animation?, before proceeding into Menu
 
             Menu();
@@ -460,21 +507,21 @@ namespace ASCII_GAME
 
 
 
-            bool win = true;
+            //bool win = true;
 
-            //play game
+            ////play game
 
-            //if win
-            if (win == true)
-            {
-                Console.WriteLine("You won! The pizza was delivered ahead of time and is still hot!");
-            }
+            ////if win
+            //if (win == true)
+            //{
+            //    Console.WriteLine("You won! The pizza was delivered ahead of time and is still hot!");
+            //}
 
-            //if lose
-            else
-            {
-                Console.WriteLine("You lost! You take a bite of the pizza and pass away.");
-            }
+            ////if lose
+            //else
+            //{
+            //    Console.WriteLine("You lost! You take a bite of the pizza and pass away.");
+            //}
             //insert animation
 
 
