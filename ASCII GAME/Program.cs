@@ -49,12 +49,12 @@ namespace ASCII_GAME
                 Console.WriteLine("\t\tI              [Menu Options]               I");
                 Console.WriteLine("\t\tI                                           I");
                 Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
+                //Console.WriteLine("\t\tI                                           I");
+                //Console.WriteLine("\t\tI            1: Tic-tac-toe                 I");
+                //Console.WriteLine("\t\tI            2: Battleships                 I");
+                //Console.WriteLine("\t\tI            3: Minesweeper                 I");
                 Console.WriteLine("\t\tI                                           I");
-                Console.WriteLine("\t\tI            1: Tic-tac-toe                 I");
-                Console.WriteLine("\t\tI            2: Battleships                 I");
-                Console.WriteLine("\t\tI            3: Minesweeper                 I");
-                Console.WriteLine("\t\tI                                           I");
-                Console.WriteLine("\t\tI            0: Shutdown                    I");
+                Console.WriteLine("\t\tI              0: Adventure                 I");
                 Console.WriteLine("\t\tI                                           I");
                 Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
                 Console.WriteLine();
@@ -73,18 +73,18 @@ namespace ASCII_GAME
                 switch (choice)
                 {
                     case 0:
-                        Console.WriteLine("Shutting Down...");
+                        Console.WriteLine("Starting Adventure...");
                         Thread.Sleep(1000);
                         break;
 
-                    case 1:
-                        break;
+                    //case 1:
+                    //    break;
 
-                    case 2:
-                        break;
+                    //case 2:
+                    //    break;
 
-                    case 3:
-                        break;
+                    //case 3:
+                    //    break;
 
                     default:
                         Console.WriteLine("Invalid Input, Try Again");
