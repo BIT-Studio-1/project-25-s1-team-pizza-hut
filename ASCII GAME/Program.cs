@@ -204,11 +204,13 @@ namespace ASCII_GAME
 
             }
 
+            //use random class to update damage numbers from fixed to random within a range
             public static void Fight(int[] E_Stats)
             {
                 int damage;
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
+                // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
+                if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  
                 {
                     //Player starts first
                     FightMenu(E_Stats);
@@ -217,6 +219,8 @@ namespace ASCII_GAME
                 while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
+
+                    //calculate damage the player takes
                     damage = (E_Stats[2] - DEF);
                     if (damage <= 0)
                     { damage = 0;  }
@@ -241,7 +245,7 @@ namespace ASCII_GAME
             public static void FightMenu(int[] E_Stats)
             {
                 int choice, damage;
-
+                
                 do
                 {
                     Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
