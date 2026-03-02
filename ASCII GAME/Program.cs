@@ -310,7 +310,7 @@ namespace ASCII_GAME
                     Required += 20;
                 }
                 Console.WriteLine("Player Stats:");
-                Console.WriteLine($"\tHP  : {current_HP}/{max_HP}");
+                Console.WriteLine($"\tHP  : {max_HP}/{current_HP}");
                 Console.WriteLine($"\tATT : {ATT}");
                 Console.WriteLine($"\tDEF : {DEF}");
                 Console.WriteLine($"\tSPD : {SPD}");
