@@ -267,7 +267,8 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
-                            damage = (ATT - DEF);
+                            //player attack damage is players attack stat + a random number between -2 and 2
+                            damage = (ATT + rand.Next(-2, 2));
                             if (damage <= 0)
                             { 
                                 damage = 0; 
