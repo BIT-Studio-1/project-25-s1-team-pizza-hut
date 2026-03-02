@@ -221,7 +221,8 @@ namespace ASCII_GAME
                     //Enemy's Turn
 
                     //calculate damage the player takes
-                    damage = (E_Stats[2] - DEF);
+                    //enemies attack stat minus the players defence. Add a random damage value between -2 and 2
+                    damage = ((E_Stats[2] - DEF)+rand.Next(-2, 2));
                     if (damage <= 0)
                     { damage = 0;  }
                     current_HP -= damage;
