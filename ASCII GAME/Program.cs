@@ -204,7 +204,6 @@ namespace ASCII_GAME
 
             }
 
-            //use random class to update damage numbers from fixed to random within a range
             public static void Fight(int[] E_Stats)
             {
                 int damage;
@@ -222,7 +221,7 @@ namespace ASCII_GAME
 
                     //calculate damage the player takes
                     //enemies attack stat minus the players defence. Add a random damage value between -2 and 2
-                    damage = ((E_Stats[2] - DEF)+rand.Next(-2, 2));
+                    damage = ((E_Stats[2] + rand.Next(1, 6) - DEF));
                     if (damage <= 0)
                     { damage = 0;  }
                     current_HP -= damage;
@@ -267,8 +266,8 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
-                            //player attack damage is players attack stat + a random number between -2 and 2
-                            damage = (ATT + rand.Next(-2, 2));
+                            //player attack damage is players attack stat - the enemies defence stat + a random number between -2 and 2
+                            damage = (ATT - E_Stats[3] + rand.Next(-2, 2));
                             if (damage <= 0)
                             { 
                                 damage = 0; 
