@@ -58,7 +58,7 @@ namespace ASCII_GAME
                 Console.WriteLine("\t\tI                                           I");
                 Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
                 Console.WriteLine();
-                Console.Write("\tChoice: ");
+                Console.Write("\tInput choice and press Enter to Begin!!: ");
 
                 try
                 {
@@ -127,7 +127,7 @@ namespace ASCII_GAME
                 Console.WriteLine("Your mission: restore balance to the Memeverse");
                 Thread.Sleep(600);
                 Console.WriteLine("...before it’s consumed by cringe.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1500);
                 Console.WriteLine();
                 Console.WriteLine("Press ENTER to begin your quest.");
                 Console.ReadLine();
@@ -156,6 +156,11 @@ namespace ASCII_GAME
                 Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
+
+                //First encounter
+                Console.WriteLine("You are adventuring and then suddenly");
+                Thread.Sleep(1000);
+                PeterGriffin();
 
 
                 //initialise enemy stats
@@ -328,7 +333,7 @@ namespace ASCII_GAME
                 return item_List;
             }
 
-            // Enemies
+            // Enemies/Bosses
             public static int[] Pepefrog()
             {
                 //Pepe battle
@@ -341,6 +346,8 @@ namespace ASCII_GAME
                 Console.WriteLine(pepe[0]);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Pepe the frog has appeared!!");
+                Console.WriteLine("Press Enter to begin Fight!");
+                Console.WriteLine("HP 50/50");
 
                 return Pepefrog_Stats;
             }
@@ -356,22 +363,23 @@ namespace ASCII_GAME
                 Console.WriteLine(chungus[0]);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Big Chungus has appeared!!");
+                Console.WriteLine("Press Enter to begin Fight!");
                 Console.WriteLine("HP 40/40");
 
                 return BigChungus_Stats;
             }
-            //public static int[] PeterGriffin()
-            //{
+            public static int[] PeterGriffin()
+            {
                 //Peter Griffin potential battle
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                //int[] PeterGriffin_Stats = new int[6] { 60, 35, 3, 5, 5, 2 };
+                int[] PeterGriffin_Stats = new int[6] { 60, 35, 3, 5, 5, 2 };
 
-                //string[] Peter = { "                                  ypnoijlpll                                                        \r\n                                z0qssrnqsmnspt                                                      \r\n                                esrnrskqilllfn                                                      \r\n                               ykssqcdbf9ossrjy                                                     \r\n                               yjssssspfssssrhyzrg5XTPPTY5grz                                       \r\n                               zbssssrqrsssgfx4TQPQRSSSSSSSST6u                                     \r\n                               zassssssssssezp0nlnssofmmlpoVS9njz                                   \r\n                               zfsssssssssr2n7y  xicdx  z98Xdqormy                                  \r\n                               yksssssssqemsqs8qssrotz zrrssssssprz      z                          \r\n                               xnssssssnisssslnsssqssnlnrsssssssshw                                 \r\n                               xqsssssrissssqerrrrssl1HF6ssssssssse                                 \r\n                              ylmsssssnrssssssss4EEEEEEECrssssssssex                                \r\n                              vfsfsssshosssssssr2EEEECFImsssssssssst                                \r\n                              ymq zvkj9msssjeosssog40cfsssssssssssto                                \r\n                              ysxw    losssslrsssssssssssssssssssssisz                              \r\n                                0jyyyzpqsssqhmsssssssssssssssssssrl gqz                             \r\n                                uz  zxssssnrsssssssssqssssssssssoqzwozqpx                           \r\n                                z7   zressr0sss0isss0ssssssssss9xzqrz  zot                          \r\n                                 sy  zvzipsssssssnhnssssssssqjtwqmuz      my                        \r\n                                 zj   xkzwkssssssssssssssslluznw          xqz                       \r\n                                  rq    tsz mmrssssssspnht  ysy            zjz                      \r\n                                  zmyzy  xpu  vchrkblrx   xlnw               pw                     \r\n                                   zbxs     pmzyzm   ozykgz i             zz  qtz                   \r\n                                    zgq        whv   yqz   jy             vv    mw                  \r\n                                    wj         zvy         u              bqz   zpt                 \r\n                                   tm          ul        vmz    zqnpuz   rv       mz                \r\n                                  vqz       zryc         umtvux     zwpwyn        xp                \r\n                                  sz          p          vzyxxxyz     zsn         xn                \r\n                                 vp          xu          khpsssqlmnsz spjz        jz                \r\n                                 b          zgx          trsssssssssku nl        iIz                \r\n                                z1         tqz          tossssssssssserqy     sp4FHh                \r\n                                 3         zxy         znssssssssssrpvz      0QHFLPb                \r\n                                 vr         zwz     ztnirsssssssssskx     t6FGPMPPNs                \r\n                                  voz        tz    umssssssssssssshzwutaUJEEJNPPPP6                 \r\n                                    xdnuhx  yotw   wfe9sssssssssqnqVDEEEFJPPPPPPPXq                 \r\n                                     mGEFQU9mx ypq lksssssssssss0KPJILNPPPPPPPPPQo                  \r\n                                     w6PPPLIFEhkkkkgkssssssssssqPPPPPPPPPPPPPPPOx                   \r\n                                      wWPPPPPPPZ0bc03N0psrqssqaPPPPPPPPPPPPPPQ8x                    \r\n                                     lQPPPPPPPPPPPPPPPPQONU1URPPPPPPPPPPPPPPUtz                     \r\n                                    mQPPPPPPPPPPPPPPPPOOPPPPPPPPPPPPPPPPPPPdz                       \r\n" };
-                //Console.WriteLine(Peter[0]);
-                //Console.WriteLine("PeterGriffin has appeared!!");
-                //Console.ReadLine();
-                //return PeterGriffin_Stats;
-            //}
+                string[] Peter = { "                                  ypnoijlpll                                                        \r\n                                z0qssrnqsmnspt                                                      \r\n                                esrnrskqilllfn                                                      \r\n                               ykssqcdbf9ossrjy                                                     \r\n                               yjssssspfssssrhyzrg5XTPPTY5grz                                       \r\n                               zbssssrqrsssgfx4TQPQRSSSSSSSST6u                                     \r\n                               zassssssssssezp0nlnssofmmlpoVS9njz                                   \r\n                               zfsssssssssr2n7y  xicdx  z98Xdqormy                                  \r\n                               yksssssssqemsqs8qssrotz zrrssssssprz      z                          \r\n                               xnssssssnisssslnsssqssnlnrsssssssshw                                 \r\n                               xqsssssrissssqerrrrssl1HF6ssssssssse                                 \r\n                              ylmsssssnrssssssss4EEEEEEECrssssssssex                                \r\n                              vfsfsssshosssssssr2EEEECFImsssssssssst                                \r\n                              ymq zvkj9msssjeosssog40cfsssssssssssto                                \r\n                              ysxw    losssslrsssssssssssssssssssssisz                              \r\n                                0jyyyzpqsssqhmsssssssssssssssssssrl gqz                             \r\n                                uz  zxssssnrsssssssssqssssssssssoqzwozqpx                           \r\n                                z7   zressr0sss0isss0ssssssssss9xzqrz  zot                          \r\n                                 sy  zvzipsssssssnhnssssssssqjtwqmuz      my                        \r\n                                 zj   xkzwkssssssssssssssslluznw          xqz                       \r\n                                  rq    tsz mmrssssssspnht  ysy            zjz                      \r\n                                  zmyzy  xpu  vchrkblrx   xlnw               pw                     \r\n                                   zbxs     pmzyzm   ozykgz i             zz  qtz                   \r\n                                    zgq        whv   yqz   jy             vv    mw                  \r\n                                    wj         zvy         u              bqz   zpt                 \r\n                                   tm          ul        vmz    zqnpuz   rv       mz                \r\n                                  vqz       zryc         umtvux     zwpwyn        xp                \r\n                                  sz          p          vzyxxxyz     zsn         xn                \r\n                                 vp          xu          khpsssqlmnsz spjz        jz                \r\n                                 b          zgx          trsssssssssku nl        iIz                \r\n                                z1         tqz          tossssssssssserqy     sp4FHh                \r\n                                 3         zxy         znssssssssssrpvz      0QHFLPb                \r\n                                 vr         zwz     ztnirsssssssssskx     t6FGPMPPNs                \r\n                                  voz        tz    umssssssssssssshzwutaUJEEJNPPPP6                 \r\n                                    xdnuhx  yotw   wfe9sssssssssqnqVDEEEFJPPPPPPPXq                 \r\n                                     mGEFQU9mx ypq lksssssssssss0KPJILNPPPPPPPPPQo                  \r\n                                     w6PPPLIFEhkkkkgkssssssssssqPPPPPPPPPPPPPPPOx                   \r\n                                      wWPPPPPPPZ0bc03N0psrqssqaPPPPPPPPPPPPPPQ8x                    \r\n                                     lQPPPPPPPPPPPPPPPPQONU1URPPPPPPPPPPPPPPUtz                     \r\n                                    mQPPPPPPPPPPPPPPPPOOPPPPPPPPPPPPPPPPPPPdz                       \r\n" };
+                Console.WriteLine(Peter[0]);
+                Console.WriteLine("PeterGriffin has appeared!!");
+                Console.ReadLine();
+                return PeterGriffin_Stats;
+            }
 
             public static int[] DatBoi()
             {
@@ -415,7 +423,7 @@ namespace ASCII_GAME
                 
                 do
                 {
-                    Console.Write("Please enter L for left or R for right: ");
+                    Console.Write("\tInput L for left or R for right and press Enter to continue...: ");
 
                     choice = Console.ReadLine();
                     //Choose pathway to next encounter
@@ -500,8 +508,8 @@ namespace ASCII_GAME
             //Game Code
             Intro();
            
-            GuyatComputer();
-            Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
+            //GuyatComputer();
+            //Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
             //Starting up Computer Animation?, before proceeding into Menu
 
             Menu();
