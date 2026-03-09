@@ -111,6 +111,8 @@ namespace ASCII_GAME
             public static void Adventure()
             {
                 //If Adding to Adventure Code use this method
+                //initialise enemy stats
+                int[] Enemy_Stats = new int[6];
 
                 Console.WriteLine("Welcome to our text adventure game");
                 Thread.Sleep(1000);
@@ -157,9 +159,6 @@ namespace ASCII_GAME
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
 
-
-                //initialise enemy stats
-                int[] Enemy_Stats = new int[6];
 
                 //Get pathway choice of left or right
                 String choice = Pathway();
