@@ -508,8 +508,8 @@ namespace ASCII_GAME
             //Game Code
             Intro();
            
-            //GuyatComputer();
-            //Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
+            GuyatComputer();
+            Console.WriteLine("You sit down at a computer. \nIt looks like this:\n");
             //Starting up Computer Animation?, before proceeding into Menu
 
             Menu();
