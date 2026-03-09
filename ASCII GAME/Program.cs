@@ -208,7 +208,8 @@ namespace ASCII_GAME
             {
                 int damage;
                 //ORDER -- max_HP, current_HP, ATT, DEF, SPD, LVL
-                if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
+                // Checks if Player has greater speed and makes a 50-50 roll if they are equal for the player to start first
+                if (SPD > E_Stats[4] || (SPD == E_Stats[4] && rand.Next(0, 2) == 0))  
                 {
                     //Player starts first
                     FightMenu(E_Stats);
@@ -217,7 +218,10 @@ namespace ASCII_GAME
                 while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
                     //Enemy's Turn
-                    damage = (E_Stats[2] - DEF);
+
+                    //calculate damage the player takes
+                    //enemies attack stat minus the players defence. Add a random damage value between -2 and 2
+                    damage = ((E_Stats[2] + rand.Next(1, 6) - DEF));
                     if (damage <= 0)
                     { damage = 0;  }
                     current_HP -= damage;
@@ -241,7 +245,7 @@ namespace ASCII_GAME
             public static void FightMenu(int[] E_Stats)
             {
                 int choice, damage;
-
+                
                 do
                 {
                     Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
@@ -262,7 +266,8 @@ namespace ASCII_GAME
                     {
                         case 1:
                             Console.WriteLine("You attack");
-                            damage = (ATT - DEF);
+                            //player attack damage is players attack stat - the enemies defence stat + a random number between -2 and 2
+                            damage = (ATT - E_Stats[3] + rand.Next(-2, 2));
                             if (damage <= 0)
                             { 
                                 damage = 0; 
