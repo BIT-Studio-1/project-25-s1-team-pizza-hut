@@ -318,7 +318,7 @@ namespace ASCII_GAME
                 Console.WriteLine($"\tLVL : {LVL}");
                 Console.WriteLine($"\tXP  : {XP}");
                 Console.WriteLine();
-                Console.WriteLine($"\tArmed with Nothing but your GrandFather's Sword");
+                Console.WriteLine($"\tArmed with Nothing but your GrandFather's Sword.");
                 Console.ReadLine();
             }
 
