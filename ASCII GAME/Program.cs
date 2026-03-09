@@ -36,7 +36,7 @@ namespace ASCII_GAME
             {
                 Console.WriteLine(Guy);
             }
-            Console.ReadLine();
+            Thread.Sleep(1000);
         }
 
         public static void Menu()
