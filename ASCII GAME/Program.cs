@@ -12,7 +12,6 @@ namespace ASCII_GAME
         public static Random rand = new Random(); //PUBLICALLY AVAILABLE RANDOM VARIABLE
         public static void Intro()
         {
-
             string[] pizzaHutLogo = { "                                         ######++##                        \r\n                                  ############++++##                       \r\n                            ############++++++++++##                       \r\n                          #######+++++++++++++++++###                      \r\n                         ##++++++++++++++++++++++++###                     \r\n                        ##+++++++++++++++++++++++++##########              \r\n                       ##++++++++++++++++++++++++++++++###########         \r\n                      #++++++++++++++++++++++++++++++++++++++##########    \r\n                    ##++++++++++++++++++++++++++++++++++++++++++++######## \r\n                #####++++++++++++++++++++++++++++++++##############++++### \r\n             #####++++++++++++++++++++++###########################++++    \r\n          #####+++++++++++++++################################             \r\n       #####++++++++++###########+++######                                 \r\n     ####+++++#################+++++                                       \r\n  #####################      ++++++                                        \r\n##############               ++++             ############       ########  \r\n#######                       +               #############   ###########  \r\n            #######           ## ############# ##########   ######  ####   \r\n        ##############      #### ############    #######   ################\r\n        ###############    #####      ######   #######     ################\r\n          ####   #######  #####     ######   #####################         \r\n         #####     ##### #####   ########   ###############                \r\n        #####      ##### ##### ############# ##     ##                     \r\n       #####     ######  #### #########################   ###              \r\n      ######   ######    ###  #####################     #####              \r\n     ##############      ##      ###                   ############        \r\n    ######  #           ###     ####            # #############            \r\n    ######             ####    ####  ###       ### #######                 \r\n   ######             ####     ####  ####     ####   ####                  \r\n   #####             #####    ###########   ######  #####                  \r\n  #####             ############### #############   ####                   \r\n  #####        ###################  #############   ###          .-...     \r\n  ####         ###################  #######   ###   ##+..............-     \r\n   #             ######     #####     ##        ....+-..........    ###    \r\n                 ######     ####          ................          ###    \r\n                 #####       ##       ...............                      \r\n                 #####            .............                            \r\n                 ####        -............--                               \r\n                         -..............                                   \r\n                      .............                                        \r\n                      ........-                                            " };
             Console.ForegroundColor = ConsoleColor.DarkRed;
             foreach (string logo in pizzaHutLogo) { Console.WriteLine(logo); }
@@ -100,6 +99,24 @@ namespace ASCII_GAME
 
             } while (choice != 0);
         }
+
+        public static void EraseLines(int lines)
+        {
+            //Erases amount of lines in the console given to the method
+            int currentLine = Console.CursorTop;
+            if (currentLine < lines)
+            {
+                lines = currentLine;
+            }
+            for (int i = 0; i < lines; i++)
+            {
+                Console.SetCursorPosition(0, currentLine - (i+1));
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+            currentLine = Console.CursorTop;
+            Console.SetCursorPosition(0, currentLine);
+        }
+
 
         public class TextAdventure
         {
@@ -267,10 +284,18 @@ namespace ASCII_GAME
                         input = Console.ReadLine();
                         //Error Handling
                         bool success = int.TryParse(input, out choice); 
-                        if (success) { error = 0; }
-                        else { error = 1; }
-                        Console.Clear();
-                        Console.WriteLine("\x1b[3J");
+                        if (success) 
+                        { 
+                            error = 0;
+                            EraseLines(8);
+                        }
+                        else 
+                        { 
+                            error = 1;
+                            Console.WriteLine("Input Invalid, Press Enter to try Again");   //If changing or removing error message, change EraseLines()'s value according to lines added or taken away
+                            Console.ReadLine();
+                            EraseLines(10);
+                        }
                     } while (error == 1);
 
                     switch (choice)
