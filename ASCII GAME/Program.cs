@@ -4,6 +4,7 @@ using System.Data;
 using System.Runtime.ExceptionServices;
 using System.Text;
 
+
 namespace ASCII_GAME
 {
     internal class Program
@@ -249,23 +250,28 @@ namespace ASCII_GAME
 
             public static void FightMenu(int[] E_Stats)
             {
-                int choice, damage;
+                string input;
+                int damage, choice, error;
                 
                 do
                 {
-                    Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
-                    Console.WriteLine("\t\tI                                           I");
-                    Console.WriteLine("\t\tI            1: Attack                      I");
-                    Console.WriteLine("\t\tI            2: Items                       I");
-                    Console.WriteLine("\t\tI            3: Check                       I");
-                    Console.WriteLine("\t\tI                                           I");
-                    Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
-
-                    string temp = Console.ReadLine();
-                    choice = Convert.ToInt32(temp);
-                    Console.Clear();
-                    Console.WriteLine("\x1b[3J");
-
+                    do
+                    {
+                        Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
+                        Console.WriteLine("\t\tI                                           I");
+                        Console.WriteLine("\t\tI            1: Attack                      I");
+                        Console.WriteLine("\t\tI            2: Items                       I");
+                        Console.WriteLine("\t\tI            3: Check                       I");
+                        Console.WriteLine("\t\tI                                           I");
+                        Console.WriteLine("\t\tI-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I-I");
+                        input = Console.ReadLine();
+                        //Error Handling
+                        bool success = int.TryParse(input, out choice); 
+                        if (success) { error = 0; }
+                        else { error = 1; }
+                        Console.Clear();
+                        Console.WriteLine("\x1b[3J");
+                    } while (error == 1);
 
                     switch (choice)
                     {
