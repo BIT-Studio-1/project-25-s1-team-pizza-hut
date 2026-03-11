@@ -37,7 +37,7 @@ namespace ASCII_GAME
             {
                 Console.WriteLine(Guy);
             }
-            Console.ReadLine();
+            Thread.Sleep(1000);
         }
 
         public static void Menu()
@@ -112,6 +112,8 @@ namespace ASCII_GAME
             public static void Adventure()
             {
                 //If Adding to Adventure Code use this method
+                //initialise enemy stats
+                int[] Enemy_Stats = new int[6];
 
                 Console.WriteLine("Welcome to our text adventure game");
                 Thread.Sleep(1000);
@@ -163,9 +165,6 @@ namespace ASCII_GAME
                 Thread.Sleep(1000);
                 PeterGriffin();
 
-
-                //initialise enemy stats
-                int[] Enemy_Stats = new int[6];
 
                 //Get pathway choice of left or right
                 String choice = Pathway();
