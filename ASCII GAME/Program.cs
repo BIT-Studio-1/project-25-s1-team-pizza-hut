@@ -198,9 +198,6 @@ namespace ASCII_GAME
                     Enemy_Stats = Pepefrog();
                 }
 
-
-
-                Console.ReadLine();
                 Fight(Enemy_Stats);
                 if (current_HP <= 0)
                 {
@@ -236,7 +233,6 @@ namespace ASCII_GAME
                 {
                     //Player starts first
                     FightMenu(E_Stats);
-                    Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                 }
                 while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
@@ -248,20 +244,23 @@ namespace ASCII_GAME
                     if (damage <= 0)
                     { damage = 0;  }
                     current_HP -= damage;
+                    Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                     Console.WriteLine($"The enemy deals {damage} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
                     Console.ReadLine();
+                    EraseLines(4);
 
                     if (current_HP >= 0)
                     {
                         //Player's Turn
                         FightMenu(E_Stats);
-                        Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                     } 
                 }
                 if (E_Stats[1] <= 0)
                 {
                     // Player Has Defeated the Enemy
+                    Console.Clear();
+                    Console.WriteLine("\x1b[3J");
                 }
             }
 
@@ -269,7 +268,7 @@ namespace ASCII_GAME
             {
                 string input;
                 int damage, choice, error;
-                
+                Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                 do
                 {
                     do
@@ -315,6 +314,7 @@ namespace ASCII_GAME
                             }
                             Console.WriteLine($"You deal {damage} damage!");
                             Console.ReadLine();
+                            EraseLines(4);
                             break;
 
                         case 2:
@@ -324,18 +324,16 @@ namespace ASCII_GAME
                         case 3:
                             //check player stats
                             check();
+                            EraseLines(11);
                             break;
 
                         default:
                             Console.WriteLine("Invalid Input, Try Again");
                             Console.ReadLine();
+                            EraseLines(2);
                             break;
-
                     }
-                    Console.Clear();
-                    Console.WriteLine("\x1b[3J");
                 } while (choice != 1);
-
             }
 
             public static void check()
@@ -384,6 +382,8 @@ namespace ASCII_GAME
                 Console.WriteLine("Pepe the frog has appeared!!");
                 Console.WriteLine("Press Enter to begin Fight!");
                 Console.WriteLine("HP 50/50");
+                Console.ReadLine();
+                EraseLines(4);
 
                 return Pepefrog_Stats;
             }
@@ -401,6 +401,8 @@ namespace ASCII_GAME
                 Console.WriteLine("Big Chungus has appeared!!");
                 Console.WriteLine("Press Enter to begin Fight!");
                 Console.WriteLine("HP 40/40");
+                Console.ReadLine();
+                EraseLines(4);
 
                 return BigChungus_Stats;
             }
@@ -473,7 +475,6 @@ namespace ASCII_GAME
                             Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
                             Thread.Sleep(3000);
-                            BigChungus();
                             break;
 
                         case "R":
@@ -483,7 +484,6 @@ namespace ASCII_GAME
                             Thread.Sleep(2000);
                             Console.WriteLine("suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
-                            Pepefrog();
                             break;
 
 
