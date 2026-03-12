@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Runtime.ExceptionServices;
 using System.Text;
+using System.Threading;
 
 namespace ASCII_GAME
 {
@@ -206,7 +207,17 @@ namespace ASCII_GAME
                 Enemy_Stats = DatBoi();
                 Fight(Enemy_Stats);
 
+                if (current_HP <= 0)
+                {
+                    //If player dies to final boss it displays you lose ascii
+                    PlayerLoses();
+                }
 
+                else
+                {
+                    //if player wins boss fight the ending shows
+                    Ending.ShowEnding();
+                }
             }
 
             public static void Fight(int[] E_Stats)
@@ -507,6 +518,34 @@ namespace ASCII_GAME
             }
         }
 
+        public class Ending
+        {
+            public static void ShowEnding()
+            {
+                Console.Clear();
+
+                Console.WriteLine("Dat Boi staggers...");
+                Thread.Sleep(1200);
+
+                Console.WriteLine("His unicycle begins to wobble...");
+                Thread.Sleep(1200);
+
+                Console.WriteLine("He looks at you one last time.");
+                Thread.Sleep(1200);
+
+                Console.WriteLine("\"...here come Dat Boi...\"");
+                Thread.Sleep(1500);
+
+                Console.WriteLine("The legendary meme slowly fades away...");
+                Thread.Sleep(1500);
+
+                Console.WriteLine("Dat Boi has been defeated.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("THE END.");
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -520,6 +559,9 @@ namespace ASCII_GAME
             Menu();
             TextAdventure.Adventure();
 
+            Console.Clear();
+                
+            //Ending.ShowEnding();
 
 
             //bool win = true;
