@@ -12,7 +12,6 @@ namespace ASCII_GAME
         public static Random rand = new Random(); //PUBLICALLY AVAILABLE RANDOM VARIABLE
         public static void Intro()
         {
-
             string[] pizzaHutLogo = { "                                         ######++##                        \r\n                                  ############++++##                       \r\n                            ############++++++++++##                       \r\n                          #######+++++++++++++++++###                      \r\n                         ##++++++++++++++++++++++++###                     \r\n                        ##+++++++++++++++++++++++++##########              \r\n                       ##++++++++++++++++++++++++++++++###########         \r\n                      #++++++++++++++++++++++++++++++++++++++##########    \r\n                    ##++++++++++++++++++++++++++++++++++++++++++++######## \r\n                #####++++++++++++++++++++++++++++++++##############++++### \r\n             #####++++++++++++++++++++++###########################++++    \r\n          #####+++++++++++++++################################             \r\n       #####++++++++++###########+++######                                 \r\n     ####+++++#################+++++                                       \r\n  #####################      ++++++                                        \r\n##############               ++++             ############       ########  \r\n#######                       +               #############   ###########  \r\n            #######           ## ############# ##########   ######  ####   \r\n        ##############      #### ############    #######   ################\r\n        ###############    #####      ######   #######     ################\r\n          ####   #######  #####     ######   #####################         \r\n         #####     ##### #####   ########   ###############                \r\n        #####      ##### ##### ############# ##     ##                     \r\n       #####     ######  #### #########################   ###              \r\n      ######   ######    ###  #####################     #####              \r\n     ##############      ##      ###                   ############        \r\n    ######  #           ###     ####            # #############            \r\n    ######             ####    ####  ###       ### #######                 \r\n   ######             ####     ####  ####     ####   ####                  \r\n   #####             #####    ###########   ######  #####                  \r\n  #####             ############### #############   ####                   \r\n  #####        ###################  #############   ###          .-...     \r\n  ####         ###################  #######   ###   ##+..............-     \r\n   #             ######     #####     ##        ....+-..........    ###    \r\n                 ######     ####          ................          ###    \r\n                 #####       ##       ...............                      \r\n                 #####            .............                            \r\n                 ####        -............--                               \r\n                         -..............                                   \r\n                      .............                                        \r\n                      ........-                                            " };
             Console.ForegroundColor = ConsoleColor.DarkRed;
             foreach (string logo in pizzaHutLogo) { Console.WriteLine(logo); }
@@ -101,6 +100,24 @@ namespace ASCII_GAME
             } while (choice != 0);
         }
 
+        public static void EraseLines(int lines)
+        {
+            //Erases amount of lines in the console given to the method
+            int currentLine = Console.CursorTop;
+            if (currentLine < lines)
+            {
+                lines = currentLine;
+            }
+            for (int i = 0; i < lines; i++)
+            {
+                Console.SetCursorPosition(0, currentLine - (i+1));
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+            currentLine = Console.CursorTop;
+            Console.SetCursorPosition(0, currentLine);
+        }
+
+
         public class TextAdventure
         {
             // Text Adventure Code and Enemies
@@ -181,9 +198,6 @@ namespace ASCII_GAME
                     Enemy_Stats = Pepefrog();
                 }
 
-
-
-                Console.ReadLine();
                 Fight(Enemy_Stats);
                 if (current_HP <= 0)
                 {
@@ -219,7 +233,6 @@ namespace ASCII_GAME
                 {
                     //Player starts first
                     FightMenu(E_Stats);
-                    Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                 }
                 while (E_Stats[1] > 0 && current_HP > 0) // While the enemy and player are both alive, loop
                 {
@@ -231,20 +244,23 @@ namespace ASCII_GAME
                     if (damage <= 0)
                     { damage = 0;  }
                     current_HP -= damage;
+                    Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                     Console.WriteLine($"The enemy deals {damage} damage!");
                     Console.WriteLine($"You now have {current_HP}HP");
                     Console.ReadLine();
+                    EraseLines(4);
 
                     if (current_HP >= 0)
                     {
                         //Player's Turn
                         FightMenu(E_Stats);
-                        Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                     } 
                 }
                 if (E_Stats[1] <= 0)
                 {
                     // Player Has Defeated the Enemy
+                    Console.Clear();
+                    Console.WriteLine("\x1b[3J");
                 }
             }
 
@@ -252,7 +268,7 @@ namespace ASCII_GAME
             {
                 string input;
                 int damage, choice, error;
-                
+                Console.WriteLine($"{Enemy_Name} HP: {E_Stats[1]}/{E_Stats[0]}");
                 do
                 {
                     do
@@ -267,10 +283,18 @@ namespace ASCII_GAME
                         input = Console.ReadLine();
                         //Error Handling
                         bool success = int.TryParse(input, out choice); 
-                        if (success) { error = 0; }
-                        else { error = 1; }
-                        Console.Clear();
-                        Console.WriteLine("\x1b[3J");
+                        if (success) 
+                        { 
+                            error = 0;
+                            EraseLines(8);
+                        }
+                        else 
+                        { 
+                            error = 1;
+                            Console.WriteLine("Input Invalid, Press Enter to try Again");   //If changing or removing error message, change EraseLines()'s value according to lines added or taken away
+                            Console.ReadLine();
+                            EraseLines(10);
+                        }
                     } while (error == 1);
 
                     switch (choice)
@@ -290,6 +314,7 @@ namespace ASCII_GAME
                             }
                             Console.WriteLine($"You deal {damage} damage!");
                             Console.ReadLine();
+                            EraseLines(4);
                             break;
 
                         case 2:
@@ -299,18 +324,16 @@ namespace ASCII_GAME
                         case 3:
                             //check player stats
                             check();
+                            EraseLines(11);
                             break;
 
                         default:
                             Console.WriteLine("Invalid Input, Try Again");
                             Console.ReadLine();
+                            EraseLines(2);
                             break;
-
                     }
-                    Console.Clear();
-                    Console.WriteLine("\x1b[3J");
                 } while (choice != 1);
-
             }
 
             public static void check()
@@ -359,6 +382,8 @@ namespace ASCII_GAME
                 Console.WriteLine("Pepe the frog has appeared!!");
                 Console.WriteLine("Press Enter to begin Fight!");
                 Console.WriteLine("HP 50/50");
+                Console.ReadLine();
+                EraseLines(4);
 
                 return Pepefrog_Stats;
             }
@@ -376,6 +401,8 @@ namespace ASCII_GAME
                 Console.WriteLine("Big Chungus has appeared!!");
                 Console.WriteLine("Press Enter to begin Fight!");
                 Console.WriteLine("HP 40/40");
+                Console.ReadLine();
+                EraseLines(4);
 
                 return BigChungus_Stats;
             }
@@ -448,7 +475,6 @@ namespace ASCII_GAME
                             Thread.Sleep(2000);
                             Console.WriteLine("As you continue along suddenly something jumps out from the tall grass!!");
                             Thread.Sleep(3000);
-                            BigChungus();
                             break;
 
                         case "R":
@@ -458,7 +484,6 @@ namespace ASCII_GAME
                             Thread.Sleep(2000);
                             Console.WriteLine("suddenly something jumps out of the water at you!!");
                             Thread.Sleep(3000);
-                            Pepefrog();
                             break;
 
 
