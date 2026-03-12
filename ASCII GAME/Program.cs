@@ -294,7 +294,35 @@ namespace ASCII_GAME
 
                         case 2:
                             //check items
-                            break;
+                            int itemSelected = 0;
+
+                            //Show items
+                            itemsMenu();
+                            //get the item the user has selected
+                            itemSelected = items();
+
+                            //grenade
+                            if (itemSelected == 1)
+                            {
+                                Console.WriteLine("You throw a grenade that deals 10 damage!");
+                                //take 10 away from enemy health
+                                E_Stats[1] -= 10;
+                                Console.ReadLine();
+                                break;
+                            }
+                            //potion of healing
+                            else if (itemSelected == 2)
+                            {
+                                Console.WriteLine("You use a potion of healing!");
+                                Console.WriteLine("You gain 10 health");
+                                current_HP += 10;
+                                Console.ReadLine();
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
 
                         case 3:
                             //check player stats
@@ -499,11 +527,35 @@ namespace ASCII_GAME
             }
 
             // Items
-            public static int[] item1()
+            public static int items()
             {
-                int[] item_stats = { };
+                int choice = 0;
+                //Allow user to pick an item to use
+                do
+                {
+                    Console.WriteLine("Please enter your choice: ");
+                    int.TryParse(Console.ReadLine(), out choice);
 
-                return item_stats;
+                    //grenade
+                    if (choice == 1)
+                    {
+                        return 1;
+                    }
+                    //Potion of Healing
+                    else if (choice == 2)
+                    {
+                        return 2;
+                    }
+                    //Exit Items Menu
+                    else { return 3; }
+                } while (choice != 1 || choice != 2 || choice != 3);
+            }
+
+            public static void itemsMenu()
+            {
+                Console.WriteLine("1. Grenade");
+                Console.WriteLine("2. Potion of Healing");
+                Console.WriteLine("3. Exit Items Menu");
             }
             public static int[] item2()
             {
